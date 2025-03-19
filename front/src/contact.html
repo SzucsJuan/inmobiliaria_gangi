@@ -1,79 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inmobiliaria Gangi - Contacto</title>
-    <link rel="stylesheet" href="/front/src/assets/style/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inmobiliaria Gangi - Contacto</title>
+  <link rel="stylesheet" href="/front/src/assets/style/style.css">
 </head>
+
 <body>
 
-    <!-- Encabezado -->
-    <header>
-        <div class="logo">🏠 Inmobiliaria Gangi</div>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Propiedades</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Encabezado -->
+  <header>
+    <div class="logo">🏠 Inmobiliaria Gangi</div>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Propiedades</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Sección principal -->
-    <main>
-        <section class="contact-section">
-            <div class="form-container">
-                <h2>DEJANOS TU CONSULTA</h2>
-                <form>
-                    <input type="text" placeholder="Nombre completo *" required>
-                    <input type="email" placeholder="Correo *" required>
-                    <input type="tel" placeholder="Teléfono *" required>
-                    <input type="text" placeholder="Asunto *" required>
-                    <textarea placeholder="Mensaje *" required></textarea>
-                    <button type="submit">ENVIAR</button>
-                </form>
-            </div>
-            <div class="map-container">
-                <h2>¿DÓNDE NOS ENCONTRAMOS?</h2>
-                <iframe src="https://www.google.com/maps/embed?..."></iframe>
-            </div>
-        </section>
-    </main>
+  <!-- Sección principal -->
+  <div class="main-content">
+    <section class="contact-section" style="gap: 12em;">
+      <div class="form-container" style="gap: 1em;">
+        <h2>Dejanos tu consulta</h2>
+        <form>
+          <input type="text" placeholder="Nombre completo *" required>
+          <input type="email" placeholder="Correo *" required>
+          <input type="tel" placeholder="Teléfono *" required>
+          <input type="text" placeholder="Asunto *" required>
+          <textarea placeholder="Mensaje *" required></textarea>
+          <button type="submit">ENVIAR</button>
+        </form>
+      </div>
+      <div class="map-container" style="gap: 1em;">
+        <h2>¿Dónde nos encontramos?</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.0889213820114!2d-58.32181242352695!3d-34.70293706274639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a333868a75f6b9%3A0xd2cb3d6ec1e34c82!2sAv.%20Bartolom%C3%A9%20Mitre%206173%2C%20B1875ABE%20Wilde%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1742342322212!5m2!1ses-419!2sar"
+          width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+  </div>
 
-    <!-- Pie de página -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo"><img class="logo" src="/front/src/assets/icons/logo.png" alt="">Inmobiliaria Gangi</div>
-            <div><h3 class="property-footer-title">Encontranos en</h3>
-                <div class="contact-info">
-                    <p class="location-info">Av. Mitre 385 - Sanraf</p>
-                    <p class="location-info">(11) 3277-3991 / 3277-4723</p>
-                    <p class="location-info">diego.gangi@estudiogangi.com.ar</p>
-                </div>
-            </div>
-            
-            <div class="categories">
-                <h3 class="property-footer-title">¿Qué estás buscando?</h3>
-                <ul>
-                    <li class="property-type">Departamentos</li>
-                    <li class="property-type">Locales</li>
-                    <li class="property-type">Casas</li>
-                    <li class="property-type">Oficinas</li>
-                    <li class="property-type">PH</li>
-                </ul>
-            </div>
-            <div class="socials">
-                <h3 class="property-footer-title">Nuestras redes</h3>
-                <div style="justify-items: flex-start; display: flex;">
-                    <img  src="/front/src/assets/icons/icons8-whatsapp-50.png" alt="WhatsApp">
-                    <img  src="/front/src/assets/icons/instagram-48.png" alt="Instagram">
-                </div>
-                
-            </div>
+  <!-- Pie de página -->
+  <footer>
+    <div class="footer-content" style="margin-top: 1em;">
+      <div class="footer-logo"><img class="logo" src="/front/src/assets/icons/logo.png" alt="">Inmobiliaria Gangi</div>
+      <div>
+        <h3 class="property-footer-title">Encontranos en</h3>
+        <div class="contact-info">
+          <p class="location-info">Av. Mitre 385 - Sanraf</p>
+          <p class="location-info">(11) 3277-3991 / 3277-4723</p>
+          <p class="location-info">diego.gangi@estudiogangi.com.ar</p>
         </div>
-        <p class="property-type" style="text-align: center;">2025 Estudio Gangi - Todos los derechos reservados</p>
-    </footer>
+      </div>
+
+      <div class="categories">
+        <h3 class="property-footer-title">¿Qué estás buscando?</h3>
+        <ul>
+          <li class="property-type">Departamentos</li>
+          <li class="property-type">Locales</li>
+          <li class="property-type">Casas</li>
+          <li class="property-type">Oficinas</li>
+          <li class="property-type">PH</li>
+        </ul>
+      </div>
+      <div class="socials">
+        <h3 class="property-footer-title">Nuestras redes</h3>
+        <div style="justify-items: flex-start; display: flex; gap: 0.5em;">
+          <img src="/front/src/assets/icons/icons8-whatsapp-50.png" alt="WhatsApp">
+          <img src="/front/src/assets/icons/instagram-48.png" alt="Instagram">
+        </div>
+
+      </div>
+    </div>
+    <p class="property-type" style="text-align: center; margin-top: 2.4em;">2025 Estudio Gangi - Todos los derechos
+      reservados</p>
+  </footer>
 
 </body>
+
 </html>
