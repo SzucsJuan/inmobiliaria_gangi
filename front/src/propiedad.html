@@ -1,146 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/front/src/assets/style/style.css" />
     <title>Document</title>
     <style>
-      @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
-      
-      body {
-          font-family: Arial, sans-serif;
-      }
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
 
-      .direccion-box {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          position: absolute;
-          left: 110px;
-          top: 196px;
-      }
+        .direccion-box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: absolute;
+            left: 110px;
+            top: 196px;
+        }
 
-      .direccion-box p {
-          margin: 0;
-      }
+        .direccion-box p {
+            margin: 0;
+        }
 
-      .direccion-box .titulo {
-          font-size: 20px;
-          font-weight: bold;
-      }
+        .direccion-box .titulo {
+            font-size: 20px;
+            font-weight: bold;
+        }
 
-      .direccion-box .ubicacion {
-          display: flex;
-          align-items: center;
-          font-size: 16px;
-      }
+        .direccion-box .ubicacion {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+        }
 
-      .direccion-box .ubicacion i {
-          margin-right: 5px;
-      }
+        .direccion-box .ubicacion i {
+            margin-right: 5px;
+        }
 
-      .precio-box {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          position: absolute;
-          left: 1115px;
-          top: 188px;
-      }
+        .precio-box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            position: absolute;
+            left: 1115px;
+            top: 188px;
+        }
 
-      .precio-box .precio {
-          font-size: 20px;
-          font-weight: bold;
-      }
+        .precio-box .precio {
+            font-size: 20px;
+            font-weight: bold;
+        }
 
-      .precio-box .boton {
-          background-color: #75485E;
-          color: white;
-          border: none;
-          padding: 6px 12px;
-          border-radius: 5px;
-          font-size: 14px;
-          cursor: pointer;
-      }
-  </style>
-  </head>
-  <body>
-    <!-- Encabezado -->
-    <header>
-      <div class="header-container">
-        <div class="navbar">
-          <img src="/front/src/assets/icons/logo2.png" alt="" />Inmobiliaria
-          Gangi
-        </div>
+        .precio-box .boton {
+            background-color: #75485E;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            position: absolute;
+            left: 110px;
+            top: 300px;
+            gap: 20px;
+        }
+
+        .left-box {
+            width: 752px;
+            height: 518px;
+            background-color: #ddd;
+        }
+
+        .right-boxes {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 518px;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .right-box {
+            width: 435px;
+            height: 249px;
+            background-color: #bbb;
+            position: relative;
+        }
+
+        .codigo-inmueble {
+            position: absolute;
+            bottom: -20px;
+            right: 0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .titles-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2em;
+            width: calc(752px + 20px + 435px);
+            position: absolute;
+            left: 110px;
+            top: calc(300px + 518px + 2em);
+        }
+        .single-title-container {
+            display: flex;
+            flex-direction: column;  
+            gap: 10px; 
+            margin-top: 2em; 
+            position: absolute;
+            left: 110px;
+            top: calc(300px + 518px + 2em + 60px);;
+}
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            width: 100%;
+            text-align: left;
+        }
+        .contact-form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+    .contact-form .title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .contact-form form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .contact-form textarea {
+        height: 80px;
+        resize: none;
+    }
+
+    .contact-form .submit-btn {
+        background-color: #750000;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .contact-form .submit-btn:hover {
+        background-color: #5a0000;
+    }
+    </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="navbar">
+        <img src="/front/src/assets/icons/logo2.png" alt="" />Inmobiliaria
+        Gangi
       </div>
-      <nav>
-        <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Propiedades</a></li>
-          <li><a href="#">Contacto</a></li>
-        </ul>
-      </nav>
-    </header>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Propiedades</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
     <div class="direccion-box">
-      <p class="titulo">IBERÁ 322</p>
-      <p class="ubicacion"><i class="fas fa-map-marker-alt"></i> Avellaneda Este</p>
-  </div>
-  <div class="precio-box">
-      <p class="precio">u$s 600.000</p>
-      <button class="boton">En alquiler</button>
-  </div>
-    
+        <p class="titulo">IBERÁ 322</p>
+        <p class="ubicacion"><i class="fas fa-map-marker-alt"></i> Avellaneda Este</p>
+    </div>
+    <div class="precio-box">
+        <p class="precio">u$s 600.000</p>
+        <button class="boton">En alquiler</button>
+    </div>
 
-    <!-- Pie de página -->
-    <!-- <footer>
-      <div class="footer-content" style="margin-top: 1em">
-        <div class="footer-logo">
-          <img
-            class="logo"
-            src="/front/src/assets/icons/logo.png"
-            alt=""
-          />Inmobiliaria Gangi
+    <div class="container">
+        <div class="left-box"></div>
+        <div class="right-boxes">
+            <div class="right-box"></div>
+            <div class="right-box">
+              <p class="codigo-inmueble">Código del inmueble: 67-61</p>
+            </div>
         </div>
-        <div>
-          <h3 class="property-footer-title">Encontranos en</h3>
-          <div class="contact-info">
-            <p class="location-info">Av. Mitre 385 - Sanraf</p>
-            <p class="location-info">(11) 3277-3991 / 3277-4723</p>
-            <p class="location-info">diego.gangi@estudiogangi.com.ar</p>
-          </div>
-        </div>
-
-        <div class="categories">
-          <h3 class="property-footer-title">¿Qué estás buscando?</h3>
-          <ul>
-            <li class="property-type">Departamentos</li>
-            <li class="property-type">Locales</li>
-            <li class="property-type">Casas</li>
-            <li class="property-type">Oficinas</li>
-            <li class="property-type">PH</li>
-          </ul>
-        </div>
-        <div class="socials">
-          <h3 class="property-footer-title">Nuestras redes</h3>
-          <div style="justify-items: flex-start; display: flex; gap: 0.5em">
-            <img
-              src="/front/src/assets/icons/icons8-whatsapp-50.png"
-              alt="WhatsApp"
-            />
-            <img
-              src="/front/src/assets/icons/instagram-48.png"
-              alt="Instagram"
-            />
-          </div>
-        </div>
-      </div>
-      <p class="property-type" style="text-align: center; margin-top: 2.4em">
-        2025 Estudio Gangi - Todos los derechos reservados
-      </p>
-    </footer> -->
-  </body>
+    </div>
+    <div class="titles-container">
+      <p class="title">Caracteristicas</p>
+      <p class="title">Ubicacion</p>
+    </div>
+    <div class="single-title-container">
+      <p class="title">Superficie y medidas</p>
+      <p class="title">Servicios</p>
+      <p class="title">Informacion adicional</p>
+      <p class="title">Descripcion</p>
+    </div>
+    <div class="contact-form">
+      <h3 class="title">Contáctenme</h3>
+      <form>
+          <input type="text" placeholder="Nombre completo *" required />
+          <input type="email" placeholder="Correo *" required />
+          <input type="tel" placeholder="Teléfono *" required />
+          <textarea placeholder="Mensaje *" required></textarea>
+          <button type="submit" class="submit-btn">ENVIAR</button>
+      </form>
+  </div>
+</body>
 </html>
 
 
