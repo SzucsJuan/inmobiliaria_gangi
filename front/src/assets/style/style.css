@@ -1,7 +1,11 @@
 @import "/front/src/assets/fonts/Merriweather/Merriweather-Italic-VariableFont_opsz\,wdth\,wght.ttf";
 @import "/front/src/assets/fonts/Merriweather/Merriweather-VariableFont_opsz\,wdth\,wght.ttf";
 
-/* Reset */
+:root {
+  --main-color: #7c0007;
+  --secondary-color: #8C5074;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -130,7 +134,7 @@ textarea:focus {
 }
 
 .send-button {
-  background: #7c0007;
+  background: var(--main-color);
   color: white;
   padding: 10px;
   border: none;
@@ -147,7 +151,7 @@ iframe {
 
 /* Pie de página */
 footer {
-  background: #7c0007;
+  background: var(--main-color);
   color: white;
   padding: 30px;
   text-align: center;
