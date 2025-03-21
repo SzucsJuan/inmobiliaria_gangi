@@ -124,12 +124,93 @@
             text-align: left;
         }
         .contact-form {
-            max-width: 400px;
-            margin: 20px auto;
+            position: absolute;
+            left: calc(110px + 752px + 20px);
+            top: calc(300px + 518px + 100px);
+            width: 435px; 
+            margin: 0; 
             padding: 20px;
             background-color: white;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.ubicacion-box {
+    position: absolute;
+    left: calc(110px + 752px + 20px); 
+    top: calc(300px + 518px + 40px); 
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f5f5f5;
+    width: 435px; 
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+.caracteristicas-box {
+    position: absolute;
+    left: 110px; 
+    top: calc(300px + 518px + 40px); 
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f5f5f5; 
+    width: 752px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    text-align: left; 
+}
+.superficie-box {
+    position: absolute;
+    left: 110px; 
+    top: calc(300px + 518px + 40px + 40px); 
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f5f5f5; 
+    width: 752px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    text-align: left; 
+}
+.servicios-box {
+    position: absolute;
+    left: 110px; 
+    top: calc(300px + 518px + 40px*3); 
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f5f5f5; 
+    width: 752px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    text-align: left; 
+}
+.info-box {
+    position: absolute;
+    left: 110px; 
+    top: calc(300px + 518px + 40px*4); 
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f5f5f5; 
+    width: 752px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    text-align: left; 
+}
+.descripcion-box {
+    position: absolute;
+    left: 110px; 
+    top: calc(300px + 518px + 40px*5); 
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f5f5f5; 
+    width: 752px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    text-align: left; 
 }
 
     .contact-form .title {
@@ -171,6 +252,7 @@
     .contact-form .submit-btn:hover {
         background-color: #5a0000;
     }
+
     </style>
 </head>
 <body>
@@ -189,7 +271,7 @@
       </ul>
     </nav>
   </header>
-
+<div class="main-content">
     <div class="direccion-box">
         <p class="titulo">IBERÁ 322</p>
         <p class="ubicacion"><i class="fas fa-map-marker-alt"></i> Avellaneda Este</p>
@@ -208,16 +290,25 @@
             </div>
         </div>
     </div>
-    <div class="titles-container">
-      <p class="title">Caracteristicas</p>
-      <p class="title">Ubicacion</p>
-    </div>
-    <div class="single-title-container">
-      <p class="title">Superficie y medidas</p>
-      <p class="title">Servicios</p>
-      <p class="title">Informacion adicional</p>
-      <p class="title">Descripcion</p>
-    </div>
+    <div class="caracteristicas-box">
+      <p class="caracteristicas-title">Características</p>
+  </div>
+  <div class="superficie-box">
+    <p class="superficie-title">Superficie y medidas</p>
+</div>
+<div class="servicios-box">
+  <p class="servicios-title">Servicios</p>
+</div>
+<div class="info-box">
+  <p class="info-title">Informacion adicional</p>
+</div>
+<div class="descripcion-box">
+  <p class="descripcion-title">Descripcion</p>
+</div>
+
+    <div class="ubicacion-box">
+      <p class="ubicacion-title">Ubicación</p>
+  </div>
     <div class="contact-form">
       <h3 class="title">Contáctenme</h3>
       <form>
@@ -227,7 +318,43 @@
           <textarea placeholder="Mensaje *" required></textarea>
           <button type="submit" class="submit-btn">ENVIAR</button>
       </form>
+    </div>
   </div>
+  <footer>
+    <div class="footer-content" style="margin-top: 1em;">
+      <div class="footer-logo"><img class="logo" src="/front/src/assets/icons/logo.png" alt="">Inmobiliaria Gangi</div>
+      <div>
+        <h3 class="property-footer-title">Encontranos en</h3>
+        <div class="contact-info">
+          <p class="location-info">Av. Mitre 385 - Sanraf</p>
+          <p class="location-info">(11) 3277-3991 / 3277-4723</p>
+          <p class="location-info">diego.gangi@estudiogangi.com.ar</p>
+        </div>
+      </div>
+
+      <div class="categories">
+        <h3 class="property-footer-title">¿Qué estás buscando?</h3>
+        <ul>
+          <li class="property-type">Departamentos</li>
+          <li class="property-type">Locales</li>
+          <li class="property-type">Casas</li>
+          <li class="property-type">Oficinas</li>
+          <li class="property-type">PH</li>
+        </ul>
+      </div>
+      <div class="socials">
+        <h3 class="property-footer-title">Nuestras redes</h3>
+        <div style="justify-items: flex-start; display: flex; gap: 0.5em;">
+          <img src="/front/src/assets/icons/icons8-whatsapp-50.png" alt="WhatsApp">
+          <img src="/front/src/assets/icons/instagram-48.png" alt="Instagram">
+        </div>
+
+      </div>
+    </div>
+    <p class="property-type" style="text-align: center; margin-top: 2.4em;">2025 Estudio Gangi - Todos los derechos
+      reservados</p>
+  </footer>
+    
 </body>
 </html>
 

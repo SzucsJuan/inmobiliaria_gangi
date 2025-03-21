@@ -32,6 +32,7 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 40px 50px;
+  margin-bottom: 60px;
 }
 
 /* Encabezado */
@@ -164,7 +165,9 @@ footer {
   font-family: "Merriweather", serif;
   font-weight: bold;
   letter-spacing: 8%;
-  margin-top: auto;
+  margin-top: 20px;
+  flex-shrink: 0;
+  width: 100%;
 }
 
 .footer-content {
