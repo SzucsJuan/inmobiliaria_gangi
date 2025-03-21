@@ -9,6 +9,11 @@
   <style>
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
     
+    footer{
+      margin-top: 30em;
+      position: relative;
+      width: 100%;
+    }
 
     .direccion-box {
       display: flex;
@@ -50,7 +55,7 @@
     }
 
     .precio-box .precio {
-      font-size: 20px;
+      font-size: 24px;
       font-weight: bold;
     }
 
@@ -135,7 +140,7 @@
       position: absolute;
       left: 72%;
       top: calc(300px + 518px + 40px);
-      font-size: 24px;
+      font-size: 20px;
       font-weight: bold;
       padding: 10px;
       background-color: #f5f5f5;
@@ -149,7 +154,7 @@
       position: absolute;
       left: 110px;
       top: calc(300px + 518px + 40px);
-      font-size: 16px;
+      font-size: 20px;
       font-weight: bold;
       padding: 10px;
       background-color: #f5f5f5;
@@ -162,8 +167,8 @@
     .superficie-box {
       position: absolute;
       left: 110px;
-      top: calc(300px + 518px + 40px + 40px);
-      font-size: 16px;
+      top: calc(300px + 518px + 40px + 6%);
+      font-size: 20px;
       font-weight: bold;
       padding: 10px;
       background-color: #f5f5f5;
@@ -176,8 +181,8 @@
     .servicios-box {
       position: absolute;
       left: 110px;
-      top: calc(300px + 518px + 40px*3);
-      font-size: 16px;
+      top: calc(300px + 518px + 40px + 12%);
+      font-size: 20px;
       font-weight: bold;
       padding: 10px;
       background-color: #f5f5f5;
@@ -190,8 +195,8 @@
     .info-box {
       position: absolute;
       left: 110px;
-      top: calc(300px + 518px + 40px*4);
-      font-size: 16px;
+      top: calc(300px + 518px + 40px + 18%);
+      font-size: 20px;
       font-weight: bold;
       padding: 10px;
       background-color: #f5f5f5;
@@ -204,8 +209,8 @@
     .descripcion-box {
       position: absolute;
       left: 110px;
-      top: calc(300px + 518px + 40px*5);
-      font-size: 16px;
+      top: calc(300px + 518px + 40px + 24%);
+      font-size: 20px;
       font-weight: bold;
       padding: 10px;
       background-color: #f5f5f5;
@@ -216,7 +221,7 @@
     }
 
     .contact-form .title {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: bold;
       margin-bottom: 10px;
     }
@@ -254,6 +259,8 @@
     .contact-form .submit-btn:hover {
       background-color: #5a0000;
     }
+
+
   
   </style>
 </head>
@@ -326,6 +333,41 @@
         </form>
       </div>
     </div>
+    </div>
+    <footer>
+      <div class="footer-content" style="margin-top: 1em;">
+        <div class="footer-logo"><img class="logo" src="/front/src/assets/icons/logo.png" alt="">Inmobiliaria Gangi</div>
+        <div>
+          <h3 class="property-footer-title">Encontranos en</h3>
+          <div class="contact-info">
+            <p class="location-info">Av. Mitre 385 - Sanraf</p>
+            <p class="location-info">(11) 3277-3991 / 3277-4723</p>
+            <p class="location-info">diego.gangi@estudiogangi.com.ar</p>
+          </div>
+        </div>
+    
+        <div class="categories">
+          <h3 class="property-footer-title">¿Qué estás buscando?</h3>
+          <ul>
+            <li class="property-type">Departamentos</li>
+            <li class="property-type">Locales</li>
+            <li class="property-type">Casas</li>
+            <li class="property-type">Oficinas</li>
+            <li class="property-type">PH</li>
+          </ul>
+        </div>
+        <div class="socials">
+          <h3 class="property-footer-title">Nuestras redes</h3>
+          <div style="justify-items: flex-start; display: flex; gap: 0.5em;">
+            <img src="/front/src/assets/icons/icons8-whatsapp-50.png" alt="WhatsApp">
+            <img src="/front/src/assets/icons/instagram-48.png" alt="Instagram">
+          </div>
+    
+        </div>
+      </div>
+      <p class="property-type" style="text-align: center; margin-top: 2.4em;">2025 Estudio Gangi - Todos los derechos
+        reservados</p>
+    </footer>
 </body>
 
 </html>
