@@ -1,73 +1,78 @@
 :root {
   --main-color: #7c0007;
-  --secondary-color: #8C5074;
+  --secondary-color: #8c5074;
   --alternative-color: #787878;
 }
 
-
 .filters-container {
-    display: flex;
-    justify-content: flex-start;
-    gap: 15px;
-    padding: 20px 100px;
-    border-top: 1px solid var(--alternative-color);
-    border-bottom: 1px solid var(--alternative-color);
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  padding: 20px 100px;
+  border-top: 1px solid var(--alternative-color);
+  border-bottom: 1px solid var(--alternative-color);
 }
 
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .filter-btn {
-    padding: 8px 15px;
-    border: 1px solid var(--main-color) ;
-    background: white;
-    color: var(--alternative-color);
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  padding: 8px 15px;
+  border: 1px solid var(--main-color);
+  background: white;
+  color: var(--alternative-color);
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.filter-btn:hover {
-    background: var(--main-color) ;
-    color: white;
+.filter-btn:hover,
+.filter-btn:focus {
+  border-color: var(--main-color);
+  box-shadow: 0 0 5px var(--main-color);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 160px;
-    z-index: 1;
-    top: 100%;
-    left: 0;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 .dropdown-content a {
-    color: var(--alternative-color);
-    padding: 10px;
-    text-decoration: none;
-    display: block;
+  color: var(--alternative-color);
+  padding: 10px;
+  text-decoration: none;
+  display: block;
 }
 
 .dropdown-content a:hover {
-    background-color: var(--main-color) ;
-    color: white;
-}
-
-.show {
-    display: block;
+  background-color: var(--main-color);
+  color: white;
 }
 
 .sort-container {
-    display: flex;
-    justify-content: flex-end;
-    padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
 }
