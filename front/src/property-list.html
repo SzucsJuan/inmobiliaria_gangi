@@ -28,9 +28,9 @@
 
     <div class="filters-container">
         <div class="dropdown">
-            <button class="filter-btn">Ubicación <img src="/front/src/assets/icons/icon-arrow-dropdown.png"
-                    alt=""></button>
-            <div class="dropdown-content">
+            <button class="filter-btn" onclick="toggleDropdown('dropdown1')">Ubicación <img
+                    src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
+            <div id="dropdown1" class="dropdown-content">
                 <a href="#">Contenido</a>
                 <a href="#">Contenido</a>
                 <a href="#">Contenido</a>
@@ -38,9 +38,9 @@
         </div>
 
         <div class="dropdown">
-            <button class="filter-btn">Tipo de vivienda <img src="/front/src/assets/icons/icon-arrow-dropdown.png"
-                    alt=""></button>
-            <div class="dropdown-content">
+            <button class="filter-btn" onclick="toggleDropdown('dropdown2')">Tipo de vivienda <img
+                    src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
+            <div id="dropdown2" class="dropdown-content">
                 <a href="#">Departamento</a>
                 <a href="#">Locales</a>
                 <a href="#">Casas</a>
@@ -52,17 +52,18 @@
         </div>
 
         <div class="dropdown">
-            <button class="filter-btn">Modalidad <img src="/front/src/assets/icons/icon-arrow-dropdown.png"
-                    alt=""></button>
-            <div class="dropdown-content">
+            <button class="filter-btn" onclick="toggleDropdown('dropdown3')">Modalidad <img
+                    src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
+            <div id="dropdown3" class="dropdown-content">
                 <a href="#">Venta</a>
                 <a href="#">Alquiler</a>
             </div>
         </div>
 
         <div class="dropdown">
-            <button class="filter-btn">Rango <img src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
-            <div class="dropdown-content">
+            <button class="filter-btn" onclick="toggleDropdown('dropdown4')">Rango <img
+                    src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
+            <div id="dropdown4" class="dropdown-content">
                 <a href="#">Contenido</a>
                 <a href="#">Contenido</a>
                 <a href="#">Contenido</a>
@@ -70,8 +71,10 @@
         </div>
 
         <div class="dropdown">
-            <button class="filter-btn"><img src="/front/src/assets/icons/icon-filter.png" alt=""> Filtros (N)</button>
-            <div class="dropdown-content">
+            <button class="filter-btn" onclick="toggleDropdown('dropdown5')"> <img
+                    src="/front/src/assets/icons/icon-filter.png" alt=""> Filtros (N)</button>
+            </button>
+            <div id="dropdown5" class="dropdown-content">
                 <a href="#">Filtrar por precio</a>
                 <a href="#">Filtrar por ubicación</a>
             </div>
@@ -80,16 +83,14 @@
 
     <div class="sort-container">
         <div class="dropdown">
-            <button class="filter-btn">Ordenar por <img src="/front/src/assets/icons/icon-arrow-dropdown.png"
-                    alt=""></button>
-            <div class="dropdown-content">
+            <button class="filter-btn" onclick="toggleDropdown('dropdown6')">Ordenar por <img
+                    src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
+            <div id="dropdown6" class="dropdown-content">
                 <a href="#">Mayor precio</a>
                 <a href="#">Menor precio</a>
             </div>
         </div>
     </div>
-
-
 
     <footer>
         <div class="footer-content" style="margin-top: 1em;">
@@ -128,6 +129,25 @@
         <p class="property-type" style="text-align: center; margin-top: 2.4em;">2025 Estudio Gangi - Todos los derechos
             reservados</p>
     </footer>
+
+    <script>
+        function toggleDropdown(id) {
+            document.querySelectorAll('.dropdown-content').forEach(drop => {
+                if (drop.id !== id) {
+                    drop.classList.remove('show');
+                }
+            });
+            document.getElementById(id).classList.toggle("show");
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.filter-btn')) {
+                document.querySelectorAll('.dropdown-content').forEach(drop => {
+                    drop.classList.remove('show');
+                });
+            }
+        }
+    </script>
 
 </body>
 

@@ -38,11 +38,6 @@
   box-shadow: 0 0 5px var(--main-color);
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
 .dropdown-content {
   display: none;
   position: absolute;
@@ -55,10 +50,6 @@
   border-radius: 5px;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
 .dropdown-content a {
   color: var(--alternative-color);
   padding: 10px;
@@ -69,6 +60,10 @@
 .dropdown-content a:hover {
   background-color: var(--main-color);
   color: white;
+}
+
+.show {
+  display: block;
 }
 
 .sort-container {
