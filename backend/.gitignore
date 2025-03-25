@@ -1,0 +1,5 @@
+# Archivos sensibles
+.env
+
+# Módulos de Node.js
+node_modules/
