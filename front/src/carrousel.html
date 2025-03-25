@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades Destacadas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .swiper {
+            width: 100%;
+            padding: 20px 0;
+        }
+        .swiper-slide {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+        }
+        .info {
+            padding: 15px;
+        }
+        .price {
+            font-weight: bold;
+            color: #a00;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .button {
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .view-all {
+            background: #a00;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Propiedades Destacadas</h2>
+            <button class="button view-all">Ver todo</button>
+        </div>
+        <p>Desde una lujosa casa en los centros más poblados hasta una confortable vivienda con todas sus comodidades alejada de la zona rural.</p>
+        
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="/front/src/assets/icons/home-card.jpg" alt="Propiedad 1">
+                    <div class="info">
+                        <p>Casa en venta ubicada en Almirante Solier - Villa Dominico</p>
+                        <p class="price">u$s 280.000</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/front/src/assets/icons/home-card.jpg" alt="Propiedad 2">
+                    <div class="info">
+                        <p>Casa en venta ubicada en Almirante Solier - Villa Dominico</p>
+                        <p class="price">u$s 280.000</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/front/src/assets/icons/home-card.jpg" alt="Propiedad 3">
+                    <div class="info">
+                        <p>Casa en venta ubicada en Almirante Solier - Villa Dominico</p>
+                        <p class="price">u$s 280.000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                480: { slidesPerView: 1 },
+            },
+        });
+    </script>
+</body>
+</html>
