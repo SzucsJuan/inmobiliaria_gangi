@@ -5,7 +5,7 @@ dotenv.config();
 const app = express();
 const API_KEY = process.env.API_KEY;
 
-console.log('The API key is: ${API_KEY}');
+console.log(`The API key is: ${API_KEY}`);
 
 app.use(express.json());
 
