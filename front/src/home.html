@@ -16,7 +16,8 @@
   <!-- Encabezado -->
   <header>
     <div class="header-container">
-      <div class="navbar"><img src="/front/src/assets/icons/logo1.png" alt="Logo de Inmobiliaria Gangi, especialistas en bienes raíces" class="navbar-logo">
+      <div class="navbar"><img src="/front/src/assets/icons/logo1.png"
+          alt="Logo de Inmobiliaria Gangi, especialistas en bienes raíces" class="navbar-logo">
         <span class="navbar-title">Inmobiliaria Gangi</span>
       </div>
     </div>
@@ -76,43 +77,37 @@
       <button class="view-all-btn">Ver todo</button>
     </div>
     <div class="carousel">
-      <div class="carousel">
-        <div class="card">
-          <img src="/front/src/assets/icons/home-card.jpg" alt="Propiedad 1">
-          <h3>Casa en venta ubicada en Almirante Solier, Villa Dominico</h3>
-          <p>$ 300,000</p>
-          <!-- <p>En Venta</p> -->
-          <button>Ver más</button>
-        </div>
-        <div class="card">
-          <img src="/front/src/assets/icons/home-card.jpg" alt="Propiedad 2">
-          <h3>Casa en venta ubicada en Almirante Solier, Villa Dominico</h3>
-          <p>$ 350,000</p>
-          <!-- <p>En Venta</p> -->
-          <button>Ver más</button>
-        </div>
-        <div class="card">
-          <img src="/front/src/assets/icons/home-card.jpg" alt="Propiedad 3">
-          <h3>Casa en venta ubicada en Almirante Solier, Villa Dominico</h3>
-          <p>$ 400,000</p>
-          <!-- <p>En Alquiler</p> -->
-          <button>Ver más</button>
-        </div>
-        <div class="card">
-          <img src="/front/src/assets/icons/home-card.jpg" alt="Propiedad 4">
-          <h3>Casa en venta ubicada en Almirante Solier, Villa Dominico</h3>
-          <!-- <p>$ 500,000</p> -->
-          <p>En Venta</p>
-          <button>Ver más</button>
-        </div>
-        <div class="card">
-          <img src="/front/src/assets/icons/home-card.jpg" alt="Propiedad 5">
-          <h3>Casa en venta ubicada en Almirante Solier, Villa Dominico</h3>
-          <!-- <p>Costo: $450,000</p> -->
-          <p>En Alquiler</p>
-          <button>Ver más</button>
-        </div>
+      <div class="card">
+        <img src="/front/src/assets/icons/home-card.jpg" alt="Propiedad 1">
+        <h3>Casa en venta ubicada en Almirante Solier, Villa Dominico</h3>
+        <p>$ 300,000</p>
+        <button>Ver más</button>
       </div>
+      <div class="card">
+        <img src="/front/src/assets/icons/home-card.jpg" alt="Propiedad 2">
+        <h3>Casa en venta ubicada en Almirante Solier, Villa Dominico</h3>
+        <p>$ 350,000</p>
+        <button>Ver más</button>
+      </div>
+      <div class="card">
+        <img src="/front/src/assets/icons/home-card.jpg" alt="Propiedad 3">
+        <h3>Casa en venta ubicada en Almirante Solier, Villa Dominico</h3>
+        <p>$ 400,000</p>
+        <button>Ver más</button>
+      </div>
+      <div class="card">
+        <img src="/front/src/assets/icons/home-card.jpg" alt="Propiedad 4">
+        <h3>Casa en venta ubicada en Almirante Solier, Villa Dominico</h3>
+        <p>$ 400,000</p>
+        <button>Ver más</button>
+      </div>
+      <div class="card">
+        <img src="/front/src/assets/icons/home-card.jpg" alt="Propiedad 5">
+        <h3>Casa en venta ubicada en Almirante Solier, Villa Dominico</h3>
+        <p>$ 400,000</p>
+        <button>Ver más</button>
+      </div>
+      <button id="view-all-btn-responsive" class="view-all-btn-responsive hidden">Ver todo</button>
     </div>
   </section>
 
@@ -121,7 +116,8 @@
   <!-- Pie de página -->
   <footer>
     <div class="footer-content" style="margin-top: 1em;">
-      <div class="footer-logo"><img class="footer-logo" src="/front/src/assets/icons/logo2.png" alt="Logo de Inmobiliaria Gangi, especialistas en bienes raíces">
+      <div class="footer-logo"><img class="footer-logo" src="/front/src/assets/icons/logo2.png"
+          alt="Logo de Inmobiliaria Gangi, especialistas en bienes raíces">
         <span class="footer-logo-title">Inmobiliaria Gangi</span>
       </div>
       <div>
@@ -164,22 +160,35 @@
     const totalCards = cards.length;
     const maxVisibleCards = 3;
     const carousel = document.querySelector('.carousel');
-    const arrow = document.getElementById('carousel-next');
 
-    // Función para mover el carrusel
-    function moveCarousel() {
-      if (currentIndex >= totalCards - maxVisibleCards) {
-        currentIndex = 0;
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+
+    function moveCarousel(direction) {
+      if (direction === 'next') {
+        if (currentIndex < totalCards - maxVisibleCards) {
+          currentIndex++;
+        } else {
+          currentIndex = 0;
+        }
       } else {
-        currentIndex++;
+        if (currentIndex > 0) {
+          currentIndex--;
+        } else {
+          currentIndex = totalCards - maxVisibleCards;
+        }
       }
 
-      // Mueve el carrusel al siguiente conjunto de 3 cards
       carousel.style.transform = `translateX(-${currentIndex * (100 / maxVisibleCards)}%)`;
     }
 
-    arrow.addEventListener('click', moveCarousel);
+    rightArrow.addEventListener('click', () => moveCarousel('next'));
+    leftArrow.addEventListener('click', () => moveCarousel('prev'));
 
+    function viewResponsiveButton() {
+      let button = document.getElementById("view-all-btn-responsive");
+      button.classList.toggle("hidden");
+    }
   </script>
   <script src="/front/src/js/hamburger-nav.js"></script>
 </body>
