@@ -2,159 +2,164 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Encuentra las mejores propiedades en venta y alquiler. Ofrecemos todo tipo de propiedades en diversas ubicaciones, con opciones para todos los presupuestos.">
-    <link rel="stylesheet" href="/front/src/assets/style/style.css">
-    <link rel="stylesheet" href="/front/src/assets/style/property-list.css">
-    <title>Property List</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Encuentra las mejores propiedades en venta y alquiler. Ofrecemos todo tipo de propiedades en diversas ubicaciones, con opciones para todos los presupuestos.">
+  <link rel="stylesheet" href="/front/src/assets/style/style.css">
+  <link rel="stylesheet" href="/front/src/assets/style/property-list.css">
+  <title>Property List</title>
 </head>
 
 <body>
-    <!-- Encabezado -->
-    <header>
-        <div class="header-container">
-          <div class="navbar"><img src="/front/src/assets/icons/logo1.png" alt="" class="navbar-logo">Inmobiliaria Gangi</div>
-        </div>
-        <nav>
-          <div class="hamburger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <ul class="nav-links">
-            <li><a href="/front/src/home.html">Inicio</a></li>
-            <li><a href="/front/src/property-list.html">Propiedades</a></li>
-            <li><a href="/front/src/contact.html">Contacto</a></li>
-          </ul>
-        </nav>
-        
-      </header>
+  <!-- Encabezado -->
+  <header>
+    <div class="header-container">
+      <div class="navbar"><img src="/front/src/assets/icons/logo1.png" alt="Logo de Inmobiliaria Gangi, especialistas en bienes raíces" class="navbar-logo">
+        <span class="navbar-title">Inmobiliaria Gangi</span>
+      </div>
+    </div>
+    <nav>
+      <div class="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/front/src/home.html">Inicio</a></li>
+        <li><a href="/front/src/property-list.html">Propiedades</a></li>
+        <li><a href="/front/src/contact.html">Contacto</a></li>
+      </ul>
+    </nav>
 
-    <!-- Sección principal -->
-    <div class="filters-container">
-        <div class="dropdown">
-            <button class="filter-btn" onclick="toggleDropdown('dropdown1')">Ubicación <img
-                    src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
-            <div id="dropdown1" class="dropdown-content">
-                <a href="#">Contenido</a>
-                <a href="#">Contenido</a>
-                <a href="#">Contenido</a>
-            </div>
-        </div>
+  </header>
 
-        <div class="dropdown">
-            <button class="filter-btn" onclick="toggleDropdown('dropdown2')">Tipo de vivienda <img
-                    src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
-            <div id="dropdown2" class="dropdown-content">
-                <a href="#">Departamento</a>
-                <a href="#">Locales</a>
-                <a href="#">Casas</a>
-                <a href="#">Lotes</a>
-                <a href="#">Galpones</a>
-                <a href="#">Oficinas</a>
-                <a href="#">PH</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <button class="filter-btn" onclick="toggleDropdown('dropdown3')">Modalidad <img
-                    src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
-            <div id="dropdown3" class="dropdown-content">
-                <a href="#">Venta</a>
-                <a href="#">Alquiler</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <button class="filter-btn" onclick="toggleDropdown('dropdown4')">Rango <img
-                    src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
-            <div id="dropdown4" class="dropdown-content">
-                <a href="#">Contenido</a>
-                <a href="#">Contenido</a>
-                <a href="#">Contenido</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <button class="filter-btn" onclick="toggleDropdown('dropdown5')"> <img
-                    src="/front/src/assets/icons/icon-filter.png" alt=""> Filtros (N)</button>
-            </button>
-            <div id="dropdown5" class="dropdown-content">
-                <a href="#">Filtrar por precio</a>
-                <a href="#">Filtrar por ubicación</a>
-            </div>
-        </div>
+  <!-- Sección principal -->
+  <div class="filters-container">
+    <div class="dropdown">
+      <button class="filter-btn" onclick="toggleDropdown('dropdown1')">Ubicación <img
+          src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
+      <div id="dropdown1" class="dropdown-content">
+        <a href="#">Contenido</a>
+        <a href="#">Contenido</a>
+        <a href="#">Contenido</a>
+      </div>
     </div>
 
-    <div class="sort-container">
-        <div class="dropdown">
-            <button class="filter-btn" onclick="toggleDropdown('dropdown6')">Ordenar por <img
-                    src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
-            <div id="dropdown6" class="dropdown-content">
-                <a href="#">Mayor precio</a>
-                <a href="#">Menor precio</a>
-            </div>
-        </div>
+    <div class="dropdown">
+      <button class="filter-btn" onclick="toggleDropdown('dropdown2')">Tipo de vivienda <img
+          src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
+      <div id="dropdown2" class="dropdown-content">
+        <a href="#">Departamento</a>
+        <a href="#">Locales</a>
+        <a href="#">Casas</a>
+        <a href="#">Lotes</a>
+        <a href="#">Galpones</a>
+        <a href="#">Oficinas</a>
+        <a href="#">PH</a>
+      </div>
     </div>
 
-    <!-- Pie de pagina -->
-    <footer>
-        <div class="footer-content" style="margin-top: 1em;">
-          <div class="footer-logo"><img class="footer-logo" src="/front/src/assets/icons/logo2.png" alt="">Inmobiliaria Gangi</div>
-          <div>
-            <h3 class="property-footer-title">Encontranos en</h3>
-            <div class="contact-info">
-              <p class="location-info">Av. Mitre 385 - Sanraf</p>
-              <p class="location-info">(11) 3277-3991 / 3277-4723</p>
-              <p class="location-info">diego.gangi@estudiogangi.com.ar</p>
-            </div>
-          </div>
-    
-          <div class="categories">
-            <h3 class="property-footer-title">¿Qué estás buscando?</h3>
-            <ul>
-              <li class="property-type">Departamentos</li>
-              <li class="property-type">Locales</li>
-              <li class="property-type">Casas</li>
-              <li class="property-type">Lotes</li>
-              <li class="property-type">Galpones</li>
-              <li class="property-type">Oficinas</li>
-              <li class="property-type">PH</li>
-            </ul>
-          </div>
-          <div class="socials">
-            <h3 class="property-footer-title">Nuestras redes</h3>
-            <div style="justify-items: flex-start; display: flex; gap: 0.5em;">
-              <img src="/front/src/assets/icons/icons8-whatsapp-50.png" alt="WhatsApp">
-              <img src="/front/src/assets/icons/instagram-48.png" alt="Instagram">
-            </div>
-    
-          </div>
+    <div class="dropdown">
+      <button class="filter-btn" onclick="toggleDropdown('dropdown3')">Modalidad <img
+          src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
+      <div id="dropdown3" class="dropdown-content">
+        <a href="#">Venta</a>
+        <a href="#">Alquiler</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="filter-btn" onclick="toggleDropdown('dropdown4')">Rango <img
+          src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
+      <div id="dropdown4" class="dropdown-content">
+        <a href="#">Contenido</a>
+        <a href="#">Contenido</a>
+        <a href="#">Contenido</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="filter-btn" onclick="toggleDropdown('dropdown5')"> <img
+          src="/front/src/assets/icons/icon-filter.png" alt=""> Filtros (N)</button>
+      </button>
+      <div id="dropdown5" class="dropdown-content">
+        <a href="#">Filtrar por precio</a>
+        <a href="#">Filtrar por ubicación</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sort-container">
+    <div class="dropdown">
+      <button class="filter-btn" onclick="toggleDropdown('dropdown6')">Ordenar por <img
+          src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
+      <div id="dropdown6" class="dropdown-content">
+        <a href="#">Mayor precio</a>
+        <a href="#">Menor precio</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie de pagina -->
+  <footer>
+    <div class="footer-content" style="margin-top: 1em;">
+      <div class="footer-logo"><img class="footer-logo" src="/front/src/assets/icons/logo2.png" alt="Logo de Inmobiliaria Gangi, especialistas en bienes raíces">
+        <span class="footer-logo-title">Inmobiliaria Gangi</span>
+      </div>
+      <div>
+        <h3 class="property-footer-title">Encontranos en</h3>
+        <div class="contact-info">
+          <p class="location-info">Av. Mitre 385 - Sanraf</p>
+          <p class="location-info">(11) 3277-3991 / 3277-4723</p>
+          <p class="location-info">diego.gangi@estudiogangi.com.ar</p>
         </div>
-        <p class="property-type" style="text-align: center; margin-top: 2.4em;">2025 Estudio Gangi - Todos los derechos
-          reservados</p>
-      </footer>
+      </div>
 
-    <script>
-        function toggleDropdown(id) {
-            document.querySelectorAll('.dropdown-content').forEach(drop => {
-                if (drop.id !== id) {
-                    drop.classList.remove('show');
-                }
-            });
-            document.getElementById(id).classList.toggle("show");
-        }
+      <div class="categories">
+        <h3 class="property-footer-title">¿Qué estás buscando?</h3>
+        <ul>
+          <li class="property-type">Departamentos</li>
+          <li class="property-type">Locales</li>
+          <li class="property-type">Casas</li>
+          <li class="property-type">Lotes</li>
+          <li class="property-type">Galpones</li>
+          <li class="property-type">Oficinas</li>
+          <li class="property-type">PH</li>
+        </ul>
+      </div>
+      <div class="socials">
+        <h3 class="property-footer-title">Nuestras redes</h3>
+        <div style="justify-items: flex-start; display: flex; gap: 0.5em;">
+          <img src="/front/src/assets/icons/icons8-whatsapp-50.png" alt="WhatsApp">
+          <img src="/front/src/assets/icons/instagram-48.png" alt="Instagram">
+        </div>
 
-        window.onclick = function (event) {
-            if (!event.target.matches('.filter-btn')) {
-                document.querySelectorAll('.dropdown-content').forEach(drop => {
-                    drop.classList.remove('show');
-                });
-            }
+      </div>
+    </div>
+    <p class="property-type" style="text-align: center; margin-top: 2.4em;">2025 Estudio Gangi - Todos los derechos
+      reservados</p>
+  </footer>
+
+  <script>
+    function toggleDropdown(id) {
+      document.querySelectorAll('.dropdown-content').forEach(drop => {
+        if (drop.id !== id) {
+          drop.classList.remove('show');
         }
-    </script>
-    <script src="/front/src/js/hamburger-nav.js"></script>
+      });
+      document.getElementById(id).classList.toggle("show");
+    }
+
+    window.onclick = function (event) {
+      if (!event.target.matches('.filter-btn')) {
+        document.querySelectorAll('.dropdown-content').forEach(drop => {
+          drop.classList.remove('show');
+        });
+      }
+    }
+  </script>
+  <script src="/front/src/js/hamburger-nav.js"></script>
 </body>
 
 </html>
