@@ -65,6 +65,10 @@ textarea:focus {
   cursor: pointer;
 }
 
+.send-button:hover {
+  background: #a5000a;
+}
+
 /* Mapa */
 iframe {
   width: 100%;

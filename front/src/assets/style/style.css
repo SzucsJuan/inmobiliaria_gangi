@@ -10,7 +10,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 
@@ -188,6 +187,12 @@ ul {
   text-align: left;
 }
 
+
+
+
+
+/* -------------------RESPONSIVE -----------------*/
+
 @media (max-width: 1300px) {
   footer {
     flex-direction: column;
@@ -210,13 +215,11 @@ ul {
 }
 
 
-
-/* -------------------RESPONSIVE -----------------*/
-
-
-
-/* Para pantallas menores a 764px */
 @media (max-width: 764px) {
+  * {
+    overflow-x: hidden;
+  }
+
   .navbar-title{
     display: none;
   }

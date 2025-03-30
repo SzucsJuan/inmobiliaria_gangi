@@ -16,8 +16,10 @@
   <!-- Encabezado -->
   <header>
     <div class="header-container">
-      <div class="navbar"><img src="/front/src/assets/icons/logo1.png" alt="Logo de Inmobiliaria Gangi, especialistas en bienes raíces" class="navbar-logo">
-        <span class="navbar-title">Inmobiliaria Gangi</span>
+      <div class="navbar"><img src="/front/src/assets/icons/logo1.png"
+          alt="Logo de Inmobiliaria Gangi, especialistas en bienes raíces" class="navbar-logo">
+        <span class="navbar-title"><a href="/front/src/home.html"
+            style="text-decoration: none; color: inherit;">Inmobiliaria Gangi</a></span>
       </div>
     </div>
     <nav>
@@ -40,12 +42,12 @@
     <section class="contact-section" style="gap: 12em;">
       <div class="form-container" style="gap: 1em;">
         <h2>Dejanos tu consulta</h2>
-        <form>
-          <input type="text" placeholder="Nombre completo *" required>
-          <input type="email" placeholder="Correo *" required>
-          <input type="tel" placeholder="Teléfono *" required>
-          <input type="text" placeholder="Asunto *" required>
-          <textarea placeholder="Mensaje *" required></textarea>
+        <form id="contactForm">
+          <input type="text" id="name" name="name" placeholder="Nombre completo *" required>
+          <input type="email" id="email" name="email" placeholder="Correo *" required>
+          <input type="tel" id="phone" name="phone" placeholder="Teléfono *" required>
+          <input type="text" id="subject" name="subject" placeholder="Asunto *" required>
+          <textarea id="message" name="message" placeholder="Mensaje *" required></textarea>
           <button type="submit" class="send-button">ENVIAR</button>
         </form>
       </div>
@@ -63,7 +65,8 @@
   <footer>
     <div class="footer-content" style="margin-top: 1em;">
       <div class="footer-logo"><img class="footer-logo" src="/front/src/assets/icons/logo2.png" alt="Logo de Inmobiliaria Gangi, especialistas en bienes raíces">
-        <span class="footer-logo-title">Inmobiliaria Gangi</span>
+        <span class="footer-logo-title"><a href="/front/src/home.html"
+          style="text-decoration: none; color: inherit;">Inmobiliaria Gangi</a></span>
       </div>
       <div>
         <h3 class="property-footer-title">Encontranos en</h3>
@@ -77,13 +80,13 @@
       <div class="categories">
         <h3 class="property-footer-title">¿Qué estás buscando?</h3>
         <ul>
-          <li class="property-type">Departamentos</li>
-          <li class="property-type">Locales</li>
-          <li class="property-type">Casas</li>
-          <li class="property-type">Lotes</li>
-          <li class="property-type">Galpones</li>
-          <li class="property-type">Oficinas</li>
-          <li class="property-type">PH</li>
+          <li class="property-type"><a href="#departamentos" style="text-decoration: none; color: white;">Departamentos</a></li>
+          <li class="property-type"><a href="#locales" style="text-decoration: none; color: white;">Locales</a></li>
+          <li class="property-type"><a href="#casas" style="text-decoration: none; color: white;">Casas</a></li>
+          <li class="property-type"><a href="#lotes" style="text-decoration: none; color: white;">Lotes</a></li>
+          <li class="property-type"><a href="#galpones" style="text-decoration: none; color: white;">Galpones</a></li>
+          <li class="property-type"><a href="#oficinas" style="text-decoration: none; color: white;">Oficinas</a></li>
+          <li class="property-type"><a href="#ph" style="text-decoration: none; color: white;">PH</a></li>
         </ul>
       </div>
       <div class="socials">
@@ -97,6 +100,32 @@
     <p class="property-type" style="text-align: center; margin-top: 2.4em;">2025 Estudio Gangi - Todos los derechos
       reservados</p>
   </footer>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+  <!-- <script>
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          subject: document.getElementById('subject').value,
+          message: document.getElementById('message').value,
+        };
+
+        axios.post('http://localhost:5000/send-email', formData)
+          .then(function (response) {
+            alert(response.data.message);
+            if (response.data.success) {
+              document.getElementById('contactForm').reset();
+            }
+          })
+          .catch(function (error) {
+            alert('Error al enviar el correo. Intenta nuevamente.');
+            console.error('Error:', error);
+          });
+      });
+  </script> -->
   <script src="/front/src/js/hamburger-nav.js"></script>
 </body>
 
