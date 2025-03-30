@@ -64,9 +64,10 @@
   <!-- Pie de página -->
   <footer>
     <div class="footer-content" style="margin-top: 1em;">
-      <div class="footer-logo"><img class="footer-logo" src="/front/src/assets/icons/logo2.png" alt="Logo de Inmobiliaria Gangi, especialistas en bienes raíces">
+      <div class="footer-logo"><img class="footer-logo" src="/front/src/assets/icons/logo2.png"
+          alt="Logo de Inmobiliaria Gangi, especialistas en bienes raíces">
         <span class="footer-logo-title"><a href="/front/src/home.html"
-          style="text-decoration: none; color: inherit;">Inmobiliaria Gangi</a></span>
+            style="text-decoration: none; color: inherit;">Inmobiliaria Gangi</a></span>
       </div>
       <div>
         <h3 class="property-footer-title">Encontranos en</h3>
@@ -80,7 +81,8 @@
       <div class="categories">
         <h3 class="property-footer-title">¿Qué estás buscando?</h3>
         <ul>
-          <li class="property-type"><a href="#departamentos" style="text-decoration: none; color: white;">Departamentos</a></li>
+          <li class="property-type"><a href="#departamentos"
+              style="text-decoration: none; color: white;">Departamentos</a></li>
           <li class="property-type"><a href="#locales" style="text-decoration: none; color: white;">Locales</a></li>
           <li class="property-type"><a href="#casas" style="text-decoration: none; color: white;">Casas</a></li>
           <li class="property-type"><a href="#lotes" style="text-decoration: none; color: white;">Lotes</a></li>
@@ -100,32 +102,36 @@
     <p class="property-type" style="text-align: center; margin-top: 2.4em;">2025 Estudio Gangi - Todos los derechos
       reservados</p>
   </footer>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
-  <!-- <script>
-      document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", async function (event) {
+      event.preventDefault();
 
-        const formData = {
-          name: document.getElementById('name').value,
-          email: document.getElementById('email').value,
-          phone: document.getElementById('phone').value,
-          subject: document.getElementById('subject').value,
-          message: document.getElementById('message').value,
-        };
+      const formData = {
+        name: document.getElementById("name").value,
+        to: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        subject: document.getElementById("subject").value,
+        text: document.getElementById("message").value
+      };
 
-        axios.post('http://localhost:5000/send-email', formData)
-          .then(function (response) {
-            alert(response.data.message);
-            if (response.data.success) {
-              document.getElementById('contactForm').reset();
-            }
-          })
-          .catch(function (error) {
-            alert('Error al enviar el correo. Intenta nuevamente.');
-            console.error('Error:', error);
-          });
-      });
-  </script> -->
+      try {
+        let response = await fetch("http://localhost:3000/api/send-email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        let result = await response.text();
+        alert('Mail enviado correctamente');
+        document.getElementById("contactForm").reset();
+      } catch (error) {
+        console.error("Error enviando el formulario:", error);
+      }
+    });
+  </script>
   <script src="/front/src/js/hamburger-nav.js"></script>
 </body>
 
