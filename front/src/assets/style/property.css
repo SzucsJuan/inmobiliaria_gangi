@@ -252,3 +252,27 @@ footer{
 }
 
 
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column; /* Cambia a disposición vertical */
+    align-items: stretch; /* Asegura que los elementos ocupen el ancho completo */
+    gap: 20px; /* Espaciado entre elementos */
+  }
+
+  .left-box {
+    display: block !important; /* Fuerza que esté visible */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 800px; /* Limita el ancho máximo */
+    height: auto; /* Ajusta dinámicamente la altura */
+    background-color: #ddd; /* Fondo visible para pruebas */
+    padding: 20px; /* Agrega un padding para asegurar contenido visible */
+  }
+
+  /* Oculta el resto de los elementos */
+  .right-boxes, 
+  .footer, 
+  .contact-section {
+    display: none !important; /* Fuerza que estén ocultos */
+  }
+}
+

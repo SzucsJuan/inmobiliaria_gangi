@@ -26,7 +26,7 @@
 //   const mailOptions = {
 //     from: email,
 //     to: process.env.EMAIL_USER,
-//     subject: `Nuevo mensaje de ${name} - ${subject}`,
+//     subject: Nuevo mensaje de ${name} - ${subject},
 //     text: `
 //       Nombre: ${name}
 //       Correo: ${email}
@@ -46,5 +46,5 @@
 // });
 
 // app.listen(PORT, () => {
-//   console.log(`Servidor corriendo en http://localhost:${PORT}`);
-// });
+//   console.log(Servidor corriendo en http://localhost:${PORT});
+// });
