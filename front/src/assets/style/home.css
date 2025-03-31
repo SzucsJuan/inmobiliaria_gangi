@@ -104,20 +104,20 @@
 }
 
 .view-all-btn {
+  display: inline-block;
   background-color: white;
   color: #7c0007;
   padding: 10px 20px;
-  margin-bottom: -60px;
   border: 2px solid #7c0007;
   border-radius: 5px;
+  text-align: center;
   cursor: pointer;
-  margin-bottom: 0;
+  text-decoration: none;
 }
 
 .view-all-btn:hover {
   background-color: #7c0007;
   color: white;
-  outline: none;
 }
 
 .buttons-container {
