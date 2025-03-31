@@ -16,6 +16,22 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
+app.get('/api/props', async (req, res) => {
+  const apiKey = process.env.API_KEY;
+  const url = `https://api.argencasas.com/props?api_key=${apiKey}`;
+
+  try {
+    const fetch = (await import('node-fetch')).default; 
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log('Propiedades obtenidas:', data);
+  } catch (error) {
+    console.error('Error al obtener propiedades:', error);
+    res.status(500).send('Error al obtener datos');
+  }
+});
+
+
 app.get("/api/data", (req, res) => {
   res.json({ message: "API ready" });
 });
