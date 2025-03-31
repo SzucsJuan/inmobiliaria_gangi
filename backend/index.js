@@ -25,6 +25,7 @@ app.get('/api/props', async (req, res) => {
     const response = await fetch(url);
     const data = await response.json();
     console.log('Propiedades obtenidas:', data);
+    res.json(data);
   } catch (error) {
     console.error('Error al obtener propiedades:', error);
     res.status(500).send('Error al obtener datos');
