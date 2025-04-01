@@ -64,7 +64,17 @@ function initCarousel() {
 
   const cardWidth = cards[0].offsetWidth + 20;
   const visibleCards = Math.min(6, cards.length);
-  const maxScroll = Math.max(0, (cards.length - visibleCards) * cardWidth);
+  const maxScroll = Math.min(
+    (cards.length - visibleCards) * cardWidth,
+    cardWidth * visibleCards * 1 
+  );
+
+  const spacer = document.createElement("div");
+  spacer.style.width = `${120}px`; 
+  spacer.style.flexShrink = "0"; 
+  container.appendChild(spacer); 
+
+
 
   leftArrow.addEventListener("click", function () {
     scrollAmount = Math.max(scrollAmount - cardWidth * visibleCards, 0);
