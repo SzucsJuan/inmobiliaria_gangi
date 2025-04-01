@@ -28,6 +28,7 @@ function updateCard(data, zonesData, operationsData) {
   const container = document.querySelector(".card-container");
   container.innerHTML = "";
 
+  //Ver si se puede simplificar
   if (data && Array.isArray(data.records) && data.records.length > 0) {
     console.log("Propiedades encontradas:", data.records.length);
 
@@ -65,7 +66,7 @@ function updateCard(data, zonesData, operationsData) {
                     <div class="card">
                         <img src="${imageUrl}" alt="Imagen de la propiedad">
                         <div class="card-info">
-                            <p class="price">u$s ${price} - <span class="operation">En ${operationName}</span></p>
+                            <p class="price">U$S ${price} - <span class="operation">En ${operationName}</span></p>
                             <p class="location">
                                 <img src="/front/src/assets/icons/location-icon.png" alt="Ubicación" class="location-icon">
                                 ${location} - ${zoneName}
