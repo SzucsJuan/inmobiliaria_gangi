@@ -38,12 +38,8 @@ function updateCard(data, zonesData, operationsData) {
   // console.log("Propiedades encontradas:", data.records.length);
 
   data.records.forEach((property) => {
-    if (!property.imagenes?.length) {
-      console.log("No hay imágenes disponibles para esta propiedad.");
-      return;
-    }
-
-    const [imageUrl] = property.imagenes;
+    const imageUrl = property.imagenes?.length ? property.imagenes[0] : "/front/src/assets/icons/logo2.png";
+  
     const {
       valor: price,
       calle: location,
@@ -54,12 +50,12 @@ function updateCard(data, zonesData, operationsData) {
       zona,
       operacion,
     } = property;
-
+  
     const zoneName =
       zonesData?.records?.find((z) => z.id === zona)?.nombre || "";
     const operationName =
       operationsData?.records?.find((o) => o.id === operacion)?.nombre || "";
-
+  
     const cardHTML = `
       <div class="card">
           <img src="${imageUrl}" alt="Imagen de la propiedad">
