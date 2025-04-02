@@ -1,30 +1,40 @@
 async function fetchData() {
   try {
-    const [propsResponse, zonesResponse, operationsResponse] = await Promise.all([
-      fetch("http://localhost:3000/api/props"),
-      fetch("http://localhost:3000/api/zones"),
-      fetch("http://localhost:3000/api/operations-status"),
-    ]);
+    const [propsResponse, zonesResponse, typesResponse, operationsResponse] =
+      await Promise.all([
+        fetch("http://localhost:3000/api/props"),
+        fetch("http://localhost:3000/api/zones"),
+        fetch("http://localhost:3000/api/types"),
+        fetch("http://localhost:3000/api/operations-status"),
+      ]);
 
-    if (!propsResponse.ok || !zonesResponse.ok || !operationsResponse.ok) {
+    if (
+      !propsResponse.ok ||
+      !zonesResponse.ok ||
+      !typesResponse.ok ||
+      !operationsResponse.ok
+    ) {
       throw new Error(
-        `Error en la respuesta de la API: ${propsResponse.status} / ${operationsResponse.status} / ${zonesResponse.status}`
+        `Error en la respuesta de la API: ${propsResponse.status} / ${operationsResponse.status} / ${zonesResponse.status} / ${typesResponse.status}`
       );
     }
 
-    const [propsData, zonesData, operationsData] = await Promise.all([
-      propsResponse.json(),
-      zonesResponse.json(),
-      operationsResponse.json(),
-    ]);
+    const [propsData, zonesData, typesData, operationsData] = await Promise.all(
+      [
+        propsResponse.json(),
+        zonesResponse.json(),
+        typesResponse.json(),
+        operationsResponse.json(),
+      ]
+    );
 
-    updateCard(propsData, zonesData, operationsData);
+    updateCard(propsData, zonesData, typesData, operationsData);
   } catch (error) {
     console.error("Error al obtener los datos:", error);
   }
 }
 
-function updateCard(data, zonesData, operationsData) {
+function updateCard(data, zonesData, typesData, operationsData) {
   const container = document.querySelector(".card-container");
   container.innerHTML = "";
 
@@ -40,21 +50,26 @@ function updateCard(data, zonesData, operationsData) {
         const price = property.valor;
         const street = property.calle;
 
-        const zoneName = zonesData?.records?.find((z) => z.id === property.zona)?.nombre || "";
-        const operationName = operationsData?.records?.find((o) => o.id === property.operacion)?.nombre || "";
+        const zoneName =
+          zonesData?.records?.find((z) => z.id === property.zona)?.nombre || "";
+        const typesName =
+          typesData?.records?.find((t) => t.id === property.tipo)?.nombre || "";
+        const operationName =
+          operationsData?.records?.find((o) => o.id === property.operacion)
+            ?.nombre || "";
 
         const card = document.createElement("div");
         card.classList.add("card");
         card.innerHTML = `
           <img src="${imageUrl}" alt="Imagen de la propiedad">
           <p class="price">U$S ${price} - <span class="operation">En ${operationName}</span></p>
-          <h2 class="street"><img src="/front/src/assets/icons/location-icon.png" alt="Ubicación" class="location-icon">${street} - ${zoneName}</h2>
-          <button>Ver más</button>
+          <p class="street">${typesName}</p>
+          <h2 class="street"><img src="/front/src/assets/icons/location-icon.png" alt="Ubicación" class="location-icon">${street} 
+              <br> <span class="zone" style='margin-left: 19px;'>${zoneName}</span></h2>
         `;
         container.appendChild(card);
       }
     });
-
   } else {
     console.log("No hay propiedades disponibles.");
     container.innerHTML = "<p>No se encontraron propiedades.</p>";
@@ -64,7 +79,6 @@ function updateCard(data, zonesData, operationsData) {
 document.addEventListener("DOMContentLoaded", function () {
   fetchData();
 });
-
 
 // function initCarousel() {
 //   const container = document.querySelector(".card-container");
@@ -87,15 +101,13 @@ document.addEventListener("DOMContentLoaded", function () {
 //   const visibleCards = Math.min(6, cards.length);
 //   const maxScroll = Math.min(
 //     (cards.length - visibleCards) * cardWidth,
-//     cardWidth * visibleCards * 1 
+//     cardWidth * visibleCards * 1
 //   );
 
 //   const spacer = document.createElement("div");
-//   spacer.style.width = `${120}px`; 
-//   spacer.style.flexShrink = "0"; 
-//   container.appendChild(spacer); 
-
-
+//   spacer.style.width = `${120}px`;
+//   spacer.style.flexShrink = "0";
+//   container.appendChild(spacer);
 
 //   leftArrow.addEventListener("click", function () {
 //     scrollAmount = Math.max(scrollAmount - cardWidth * visibleCards, 0);
@@ -106,5 +118,3 @@ document.addEventListener("DOMContentLoaded", function () {
 //     scrollAmount = Math.min(scrollAmount + cardWidth * visibleCards, maxScroll);
 //     container.style.transform = `translateX(-${scrollAmount}px)`;
 //   });
-
-

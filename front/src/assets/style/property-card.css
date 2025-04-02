@@ -29,6 +29,7 @@
   display: flex;
   box-sizing: border-box;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -85,8 +86,8 @@
 .card .type {
   color: #414141;
   font-weight: bold;
-  font-size: 20px;
-  margin: 10px 0;
+  font-size: 18px;
+  margin: 8px 0;
   text-align: left;
 }
 
@@ -123,7 +124,7 @@
 .whatsapp-icon {
   position: absolute;
   right: 20px;
-  bottom: 20px;
+  bottom: 8px;
   transition: transform 0.2s ease;
 }
 
@@ -150,11 +151,11 @@
 
 .aditional-info p {
   margin-top: 20px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .details {
-  margin-top: 20px;
+  margin-top: 18px;
   display: flex;
   align-items: center;
   white-space: nowrap;
