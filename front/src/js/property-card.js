@@ -1,3 +1,4 @@
+
 async function fetchData() {
   try {
     const [propsResponse, zonesResponse, operationsResponse] = await Promise.all([
@@ -84,6 +85,19 @@ function updateCard(data, zonesData, operationsData) {
   });
 }
 
+document.querySelector("#dropdown6").addEventListener("click", (event) => {
+  if (event.target.textContent.includes("Mayor precio")) {
+    sortProperties('desc');
+  } else if (event.target.textContent.includes("Menor precio")) {
+    sortProperties('asc');
+  }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   fetchData();
 });
+
+
+
+
+

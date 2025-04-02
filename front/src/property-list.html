@@ -14,6 +14,7 @@
 </head>
 
 <body>
+  
   <!-- Encabezado -->
   <script src="/front/src/js/navbar.js"></script>
   <!-- Sección principal -->
@@ -22,9 +23,27 @@
       <button class="filter-btn" onclick="toggleDropdown('dropdown1')">Ubicación <img
           src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
       <div id="dropdown1" class="dropdown-content">
-        <a href="#">Contenido</a>
-        <a href="#">Contenido</a>
-        <a href="#">Contenido</a>
+        <a href="#" onclick="filterByZone('Avellaneda Este')">Avellaneda Este</a>
+        <a href="#" onclick="filterByZone('Avellaneda Oeste')">Avellaneda Oeste</a>
+        <a href="#" onclick="filterByZone('Barracas')">Barracas</a>
+        <a href="#" onclick="filterByZone('Don Bosco Este')">Don Bosco Este</a>
+        <a href="#" onclick="filterByZone('Ezpeleta Este')">Ezpeleta Este</a>
+        <a href="#" onclick="filterByZone('Mar del Plata')">Mar del Plata</a>
+        <a href="#" onclick="filterByZone('Miramar')">Miramar</a>
+        <a href="#" onclick="filterByZone('La Plata')">La Plata</a>
+        <a href="#" onclick="filterByZone('La Lucila del Mar')">La Lucila del Mar</a>
+        <a href="#" onclick="filterByZone('Lanus Este')">Lanus Este</a>
+        <a href="#" onclick="filterByZone('Lomas de Zamora Este')">Lomas de Zamora Este</a>
+        <a href="#" onclick="filterByZone('Villa Dominico')">Villa Dominico</a>
+        <a href="#" onclick="filterByZone('Quilmes Centro')">Quilmes Centro</a>
+        <a href="#" onclick="filterByZone('Quilmes Oeste')">Quilmes Oeste</a>
+        <a href="#" onclick="filterByZone('Quilmes Sur')">Quilmes Sur</a>
+        <a href="#" onclick="filterByZone('San Vicente')">San Vicente</a>
+        <a href="#" onclick="filterByZone('Santa Teresita')">Santa Teresita</a>
+        <a href="#" onclick="filterByZone('Sarandi Este')">Sarandi Este</a>
+        <a href="#" onclick="filterByZone('Tigre')">Tigre</a>
+        <a href="#" onclick="filterByZone('Wilde Centro')">Wilde Centro</a>
+        <a href="#" onclick="filterByZone('Wilde')">Wilde</a>
       </div>
     </div>
 
@@ -105,9 +124,12 @@
           drop.classList.remove('show');
         });
       }
+      
     }
 
   </script>
+  <script src="/front/src/js/sortProperties.js"></script>
+  <script src="/front/src/js/filter.js"></script>
   <script src="/front/src/js/property-card.js"></script>
   <script src="/front/src/js/hamburger-nav.js"></script>
 </body>
