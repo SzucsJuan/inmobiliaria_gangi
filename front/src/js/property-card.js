@@ -60,11 +60,11 @@ function updateCard(data, zonesData, operationsData) {
               <div class="details">
                   <p>
                       <img src="/front/src/assets/icons/icon-house.png" alt="Ambientes" class="house-icon">
-                      Ambientes: ${rooms}
+                      Ambientes: ${rooms ?? "No detallado"}
                   </p>
                   <p>
                       <img src="/front/src/assets/icons/icon-bedroom.png" alt="Dormitorios" class="house-icon">
-                      Dormitorios: ${bedrooms}
+                      Dormitorios: ${bedrooms ?? "No detallado"}
                   </p>
                   <p>
                       <img src="/front/src/assets/icons/icon-surface.png" alt="Superficie" class="surface-icon">

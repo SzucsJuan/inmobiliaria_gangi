@@ -88,7 +88,6 @@
   background: #a5000a;
 }
 
-/* Contenedor principal de la sección */
 .featured-properties {
   text-align: center;
   align-items: center;
@@ -125,12 +124,11 @@
   color: white;
 }
 
-.buttons-container {
+.button-view-all {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 10px;
-  padding-right: 20px;
+  padding-right: 40px;
 }
 
 .nav-btn {
@@ -150,14 +148,14 @@
   color: white;
 }
 
-.carousel-container {
+.properties-section {
   overflow: hidden;
   width: 100%;
   position: relative;
   padding-bottom: 20px;
 }
 
-.carousel {
+.main-properties {
   display: flex;
   overflow: hidden;
   padding: 30px 10px;
@@ -172,19 +170,18 @@
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribuye el contenido */
-  flex: 0 0 calc(12.5% - 20px);
+  justify-content: space-between;
+  flex: 0 0 calc(25% - 20px);
   padding: 6px;
   box-sizing: border-box;
   text-align: left;
-  background: white;
+  background: rgba(167, 162, 162, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
   min-height: 200px;
-  min-width: 160px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
 }
 
 .card .card-content {
@@ -194,20 +191,21 @@
 }
 
 .card:hover {
-  box-shadow: 0 6px 6pxpx rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px 0 #787878;
   transform: translateY(-2px);
 }
 
 .card img {
   width: 100%;
-  height: 270px;
+  height: 260px;
   object-fit: cover;
   border-radius: 3px;
 }
 
-.card h3 {
+.card h2 {
+  color: #333;
   text-align: left;
-  font-size: 18px;
+  font-size: 15px;
   margin: 15px 5px;
   word-wrap: break-word;
   white-space: normal;
@@ -217,15 +215,15 @@
   text-align: left;
   font-size: 1rem;
   font-weight: bold;
-  color: #8c5074;
-  margin-bottom: 10px;
+  color: #000000;
+  margin-top: 15px;
   margin-left: 5px;
 }
 
 .card button {
   background-color: #7c0007;
   color: white;
-  padding: 8px 15px;
+  padding: 6px 8px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -238,6 +236,20 @@
 
 .card button:hover {
   background-color: #a5000a;
+}
+
+.location-icon {
+  max-width: 16px;
+  max-height: 16px;
+  width: 100%;
+  height: auto;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.operation {
+  font-size: 1rem;
+  color: #8C5074;
 }
 
 .hidden {
@@ -268,13 +280,6 @@
     width: 100%;
   }
 
-  .carousel {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    overflow: hidden;
-  }
-
   .card-container {
     flex-direction: column;
     align-items: center;
@@ -285,14 +290,6 @@
     width: 90%;
     max-width: 400px;
     margin: 10px auto;
-  }
-
-  .nav-btn {
-    display: none;
-  }
-
-  .view-all-btn {
-    display: none;
   }
 
   .view-all-btn-responsive {

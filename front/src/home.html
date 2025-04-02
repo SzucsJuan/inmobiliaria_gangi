@@ -6,10 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
     content="Encuentra las mejores propiedades en venta y alquiler. Ofrecemos todo tipo de propiedades en diversas ubicaciones, con opciones para todos los presupuestos.">
-  <title>Home</title>
+  <link rel="icon" type="image/png" href="/front/src/assets/icons/logo1.png">
   <link rel="stylesheet" href="/front/src/assets/style/style.css">
   <link rel="stylesheet" href="/front/src/assets/style/home.css">
   <script src="js/app.js"></script>
+  <title>Inmobiliaria Gangi - Inicio</title>
 </head>
 
 <body>
@@ -49,13 +50,11 @@
       hasta una confortante vivienda con todas sus comodidades alejada de la zona rural.</p>
   </section>
 
-  <section class="carousel-container">
-    <div class="buttons-container">
-      <button class="nav-btn left-arrow">&larr;</button>
-      <button class="nav-btn right-arrow">&rarr;</button>
+  <section class="properties-section">
+    <div class="button-view-all">
       <a href="/front/src/property-list.html" class="view-all-btn">Ver todo</a>
     </div>
-    <div class="carousel">
+    <div class="main-properties">
       <div class="card-container">
       </div>
     </div>
@@ -63,43 +62,7 @@
 
   <!-- Pie de página -->
   <script src="/front/src/js/footer.js"></script>
-
-  <!-- <script>
-    let currentIndex = 0;
-    const cards = document.querySelectorAll('.carousel .card');
-    const totalCards = cards.length;
-    const maxVisibleCards = 3;
-    const carousel = document.querySelector('.carousel');
-
-    const leftArrow = document.querySelector('.left-arrow');
-    const rightArrow = document.querySelector('.right-arrow');
-
-    function moveCarousel(direction) {
-      if (direction === 'next') {
-        if (currentIndex < totalCards - maxVisibleCards) {
-          currentIndex++;
-        } else {
-          currentIndex = 0;
-        }
-      } else {
-        if (currentIndex > 0) {
-          currentIndex--;
-        } else {
-          currentIndex = totalCards - maxVisibleCards;
-        }
-      }
-
-      carousel.style.transform = `translateX(-${currentIndex * (100 / maxVisibleCards)}%)`;
-    }
-
-    rightArrow.addEventListener('click', () => moveCarousel('next'));
-    leftArrow.addEventListener('click', () => moveCarousel('prev'));
-
-    function viewResponsiveButton() {
-      let button = document.getElementById("view-all-btn-responsive");
-      button.classList.toggle("hidden");
-    }
-  </script> -->
+  
   <!-- Scripts -->
   <script src="/front/src/js/hamburger-nav.js"></script>
   <script src="/front/src/js/home.js"></script>
