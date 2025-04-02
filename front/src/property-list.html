@@ -51,13 +51,16 @@
       <button class="filter-btn" onclick="toggleDropdown('dropdown2')">Tipo de vivienda <img
           src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
       <div id="dropdown2" class="dropdown-content">
-        <a href="#">Departamento</a>
-        <a href="#">Locales</a>
-        <a href="#">Casas</a>
-        <a href="#">Lotes</a>
-        <a href="#">Galpones</a>
-        <a href="#">Oficinas</a>
-        <a href="#">PH</a>
+        <a href="#" onclick="filterByType('Cabaña')">Cabaña</a>
+        <a href="#" onclick="filterByType('Casa')">Casa</a>
+        <a href="#" onclick="filterByType('Casa 2 Familias')">Casa 2 familias</a>
+        <a href="#" onclick="filterByType('Departamento')">Departamento</a>
+        <a href="#" onclick="filterByType('Depart. tipo Casa')">Depto. Tipo casa</a>
+        <a href="#" onclick="filterByType('Fondo de Comercio')">Fondo de Comercio</a>
+        <a href="#" onclick="filterByType('Galpon')">Galpon</a>
+        <a href="#" onclick="filterByType('Local')">Local</a>
+        <a href="#" onclick="filterByType('Lote')">Lote</a>
+        <a href="#" onclick="filterByType('Oficina')">Oficina</a>
       </div>
     </div>
 
@@ -65,23 +68,13 @@
       <button class="filter-btn" onclick="toggleDropdown('dropdown3')">Modalidad <img
           src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
       <div id="dropdown3" class="dropdown-content">
-        <a href="#">Venta</a>
-        <a href="#">Alquiler</a>
+        <a href="#" onclick="filterByMode('Venta')">Venta</a>
+        <a href="#" onclick="filterByMode('Alquiler')">Alquiler</a>
       </div>
     </div>
 
     <div class="dropdown">
-      <button class="filter-btn" onclick="toggleDropdown('dropdown4')">Rango <img
-          src="/front/src/assets/icons/icon-arrow-dropdown.png" alt=""></button>
-      <div id="dropdown4" class="dropdown-content">
-        <a href="#">Contenido</a>
-        <a href="#">Contenido</a>
-        <a href="#">Contenido</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="filter-btn" id="clearFiltersBtn"> <img
+      <button class="filter-btn" id="clearFiltersBtn" onclick="resetFilters()"> <img
           src="/front/src/assets/icons/icon-filter.png" alt="Limpiar filtros">Limpiar filtros</button>
       </button>
     </div>

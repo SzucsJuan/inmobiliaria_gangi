@@ -1,31 +1,33 @@
 async function fetchData() {
   try {
-    const [propsResponse, zonesResponse, operationsResponse] =
+    const [propsResponse, zonesResponse, typesResponse, operationsResponse] =
       await Promise.all([
         fetch("http://localhost:3000/api/props"),
         fetch("http://localhost:3000/api/zones"),
+        fetch("http://localhost:3000/api/types"),
         fetch("http://localhost:3000/api/operations-status"),
       ]);
 
-    if (!propsResponse.ok || !zonesResponse.ok || !operationsResponse.ok) {
+    if (!propsResponse.ok || !zonesResponse.ok || !typesResponse.ok || !operationsResponse.ok) {
       throw new Error(
         `Error en la respuesta de la API: ${propsResponse.status} / ${zonesResponse.status}`
       );
     }
 
-    const [propsData, zonesData, operationsData] = await Promise.all([
+    const [propsData, zonesData, typesData, operationsData] = await Promise.all([
       propsResponse.json(),
       zonesResponse.json(),
+      typesResponse.json(),
       operationsResponse.json(),
     ]);
 
-    updateCard(propsData, zonesData, operationsData);
+    updateCard(propsData, zonesData, typesData, operationsData);
   } catch (error) {
     console.error("Error al obtener los datos:", error);
   }
 }
 
-function updateCard(data, zonesData, operationsData) {
+function updateCard(data, zonesData, typesData, operationsData) {
   const container = document.querySelector(".card-container");
   container.innerHTML = "";
 
@@ -47,12 +49,15 @@ function updateCard(data, zonesData, operationsData) {
       dormitorios: bedrooms,
       sup_total: surface,
       descripcion: description,
+      tipo,
       zona,
       operacion,
     } = property;
   
     const zoneName =
       zonesData?.records?.find((z) => z.id === zona)?.nombre || "";
+    const typesName =
+      typesData?.records?.find((t) => t.id === tipo)?.nombre || "";
     const operationName =
       operationsData?.records?.find((o) => o.id === operacion)?.nombre || "";
   
@@ -61,6 +66,7 @@ function updateCard(data, zonesData, operationsData) {
           <img src="${imageUrl}" alt="Imagen de la propiedad">
           <div class="card-info">
               <p class="price">U$S ${price} - <span class="operation">En ${operationName}</span></p>
+              <p class="type">${typesName}</p>
               <p class="location">
                   <img src="/front/src/assets/icons/location-icon.png" alt="Ubicación" class="location-icon">
                   ${location} - ${zoneName}
