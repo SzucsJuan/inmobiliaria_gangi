@@ -33,7 +33,7 @@ function sortProperties(order) {
       if (filteredCards.length) {
         filteredCards.forEach(card => container.appendChild(card));
       } else {
-        container.innerHTML = "<p>No se encontraron propiedades en esta ubicación.</p>";
+        container.innerHTML = "<p style='margin-bottom: 20px; font-size: 20px;'>No se encontraron propiedades en esta ubicación.</p>";
       }
     } catch (error) {
       console.error("Error al filtrar propiedades por zona:", error);

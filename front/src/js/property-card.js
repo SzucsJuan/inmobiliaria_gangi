@@ -1,11 +1,11 @@
-
 async function fetchData() {
   try {
-    const [propsResponse, zonesResponse, operationsResponse] = await Promise.all([
-      fetch("http://localhost:3000/api/props"),
-      fetch("http://localhost:3000/api/zones"),
-      fetch("http://localhost:3000/api/operations-status"),
-    ]);
+    const [propsResponse, zonesResponse, operationsResponse] =
+      await Promise.all([
+        fetch("http://localhost:3000/api/props"),
+        fetch("http://localhost:3000/api/zones"),
+        fetch("http://localhost:3000/api/operations-status"),
+      ]);
 
     if (!propsResponse.ok || !zonesResponse.ok || !operationsResponse.ok) {
       throw new Error(
@@ -35,7 +35,7 @@ function updateCard(data, zonesData, operationsData) {
     return;
   }
 
-  console.log("Propiedades encontradas:", data.records.length);
+  // console.log("Propiedades encontradas:", data.records.length);
 
   data.records.forEach((property) => {
     if (!property.imagenes?.length) {
@@ -44,10 +44,21 @@ function updateCard(data, zonesData, operationsData) {
     }
 
     const [imageUrl] = property.imagenes;
-    const { valor: price, calle: location, ambientes: rooms, dormitorios: bedrooms, sup_total: surface, descripcion: description, zona, operacion } = property;
+    const {
+      valor: price,
+      calle: location,
+      ambientes: rooms,
+      dormitorios: bedrooms,
+      sup_total: surface,
+      descripcion: description,
+      zona,
+      operacion,
+    } = property;
 
-    const zoneName = zonesData?.records?.find((z) => z.id === zona)?.nombre || "";
-    const operationName = operationsData?.records?.find((o) => o.id === operacion)?.nombre || "";
+    const zoneName =
+      zonesData?.records?.find((z) => z.id === zona)?.nombre || "";
+    const operationName =
+      operationsData?.records?.find((o) => o.id === operacion)?.nombre || "";
 
     const cardHTML = `
       <div class="card">
@@ -76,7 +87,7 @@ function updateCard(data, zonesData, operationsData) {
                   <p>${description}</p>
               </div>
               <div class="whatsapp-icon">
-                  <img src="/front/src/assets/icons/icons8-whatsapp-50.png" alt="WhatsApp">
+                  <a href="https://wa.me/" target="_blank"><img src="/front/src/assets/icons/icons8-whatsapp-50.png" alt="WhatsApp"></a>
               </div>
           </div>
       </div>
@@ -87,17 +98,12 @@ function updateCard(data, zonesData, operationsData) {
 
 document.querySelector("#dropdown6").addEventListener("click", (event) => {
   if (event.target.textContent.includes("Mayor precio")) {
-    sortProperties('desc');
+    sortProperties("desc");
   } else if (event.target.textContent.includes("Menor precio")) {
-    sortProperties('asc');
+    sortProperties("asc");
   }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
   fetchData();
 });
-
-
-
-
-

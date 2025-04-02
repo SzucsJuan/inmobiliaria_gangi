@@ -81,13 +81,9 @@
     </div>
 
     <div class="dropdown">
-      <button class="filter-btn" onclick="toggleDropdown('dropdown5')"> <img
-          src="/front/src/assets/icons/icon-filter.png" alt=""> Filtros (N)</button>
+      <button class="filter-btn" id="clearFiltersBtn"> <img
+          src="/front/src/assets/icons/icon-filter.png" alt="Limpiar filtros">Limpiar filtros</button>
       </button>
-      <div id="dropdown5" class="dropdown-content">
-        <a href="#">Filtrar por precio</a>
-        <a href="#">Filtrar por ubicación</a>
-      </div>
     </div>
   </div>
 
@@ -123,10 +119,8 @@
         document.querySelectorAll('.dropdown-content').forEach(drop => {
           drop.classList.remove('show');
         });
-      }
-      
+      }   
     }
-
   </script>
   <script src="/front/src/js/sortProperties.js"></script>
   <script src="/front/src/js/filter.js"></script>
