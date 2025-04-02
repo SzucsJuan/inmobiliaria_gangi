@@ -85,5 +85,26 @@ app.get('/api/operations-status', async (req, res) => {
   }
 });
 
+app.get('/api/types', async (req, res) => {
+  const apiKey = process.env.API_KEY;
+  const url = `https://api.argencasas.com/tipos?api_key=${apiKey}`;
+
+  try {
+    const fetch = (await import('node-fetch')).default;
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+      console.error(`Error HTTP: ${response.status}`);
+      return res.status(response.status).send(`Error: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.error('Error al obtener todas las zonas:', error);
+    res.status(500).send('Error al obtener datos');
+  }
+});
+
 
 app.use("/api", emailRoutes);
