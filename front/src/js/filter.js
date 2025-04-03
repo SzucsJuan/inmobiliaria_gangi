@@ -13,6 +13,27 @@ function sortProperties(order) {
     cards.forEach(card => container.appendChild(card));
   }
 
+  function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        location: params.get("location"),
+        type: params.get("type")
+    };
+}
+
+async function applyFiltersFromURL() {
+  const { location, type } = getQueryParams();
+
+  if (location) {
+      await filterByZone(location); // Filtrar por zona (ubicación)
+  }
+  if (type) {
+      await filterByType(type); // Filtrar por tipo de propiedad
+  }
+}
+
+
+
   async function filterByZone(selectedZone) {
     try {
 
@@ -89,7 +110,9 @@ function sortProperties(order) {
   }
 
   async function resetFilters() {
+    
     try {
+      window.history.replaceState(null, "", window.location.pathname);
       const { propsData, zonesData, operationsData } = await fetchData();
   
       const container = document.querySelector(".card-container");
@@ -135,5 +158,5 @@ function sortProperties(order) {
   }
   
   
-
+  document.addEventListener("DOMContentLoaded", applyFiltersFromURL);
   window.sortProperties = sortProperties;

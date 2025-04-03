@@ -22,14 +22,28 @@
       <div class="overlay"></div>
       <div class="hero-content">
         <h1>Encontrá tu vivienda ideal</h1>
-        <p>Es tan sencillo como seleccionar la ubicación soñada y tu tipo de hogar ideal, nosotros nos encargamos del
-          resto.</p>
+        <p>Es tan sencillo como seleccionar la ubicación soñada y tu tipo de hogar ideal, nosotros nos encargamos del resto.</p>
         <div class="search-bar">
-          <div class="search-box"><input type="text" placeholder="📍 Ubicación"></div>
           <div class="search-box">
-            <select>
+            <select id="location-select">
+              <option value="" selected class="placeholder-option">Seleccionar ubicación</option>
+              <option value="avellaneda-este">Avellaneda Este</option>
+              <option value="avellaneda-oeste">Avellaneda Oeste</option>
+              <option value="barracas">Barracas</option>
+              <option value="don-bosco-este">Don Bosco Este</option>
+              <option value="ezpeleta-este">Ezpeleta Este</option>
+              <option value="mar-del-plata">Mar del Plata</option>
+              <option value="miramar">Miramar</option>
+              <option value="quilmes-centro">Quilmes Centro</option>
+              <option value="quilmes-oeste">Quilmes Oeste</option>
+              <option value="Wilde">Wilde</option>
+            </select>
+          </div>
+  
+          <div class="search-box">
+            <select id="type-select">
               <option value="" selected class="placeholder-option">Tipo de vivienda</option>
-              <option value="departamento">Departamentos</option>
+              <option value="Departamento">Departamentos</option>
               <option value="local">Locales</option>
               <option value="casa">Casas</option>
               <option value="lote">Lotes</option>
@@ -38,9 +52,24 @@
               <option value="ph">PH</option>
             </select>
           </div>
-          <button>🔍 Buscar</button>
+  
+          <button id="search-button">🔍 Buscar</button>
         </div>
       </div>
+      <script>
+        document.getElementById("search-button").addEventListener("click", function () {
+    const location = document.getElementById("location-select").value;
+    const type = document.getElementById("type-select").value;
+
+    // Verificamos que ambos filtros tengan valores seleccionados antes de redirigir
+    if (location && type) {
+        window.location.href = `property-list.html?location=${location}&tipo=${type}`;
+    } else {
+        alert("Por favor, selecciona una ubicación y un tipo de vivienda.");
+    }
+});
+
+      </script>
     </section>
   </div>
 
