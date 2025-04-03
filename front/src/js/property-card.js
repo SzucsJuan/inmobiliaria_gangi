@@ -8,22 +8,39 @@ async function fetchData() {
         fetch("http://localhost:3000/api/operations-status"),
       ]);
 
-    if (!propsResponse.ok || !zonesResponse.ok || !typesResponse.ok || !operationsResponse.ok) {
+    if (
+      !propsResponse.ok ||
+      !zonesResponse.ok ||
+      !typesResponse.ok ||
+      !operationsResponse.ok
+    ) {
       throw new Error(
         `Error en la respuesta de la API: ${propsResponse.status} / ${zonesResponse.status}`
       );
     }
 
-    const [propsData, zonesData, typesData, operationsData] = await Promise.all([
-      propsResponse.json(),
-      zonesResponse.json(),
-      typesResponse.json(),
-      operationsResponse.json(),
-    ]);
+    const [propsData, zonesData, typesData, operationsData] = await Promise.all(
+      [
+        propsResponse.json(),
+        zonesResponse.json(),
+        typesResponse.json(),
+        operationsResponse.json(),
+      ]
+    );
 
-    const filteredProperties = filterPropertiesFromURL(propsData.records, zonesData, typesData);
+    const filteredProperties = filterPropertiesFromURL(
+      propsData.records,
+      zonesData,
+      typesData
+    );
 
-    updateCard({ records: filteredProperties }, propsData, zonesData, typesData, operationsData);
+    updateCard(
+      { records: filteredProperties },
+      propsData,
+      zonesData,
+      typesData,
+      operationsData
+    );
   } catch (error) {
     console.error("Error al obtener los datos:", error);
   }
@@ -32,19 +49,21 @@ async function fetchData() {
 function filterPropertiesFromURL(properties, zonesData, typesData) {
   const { location, type } = getQueryParams();
 
-  console.log("Filtros desde la URL:", { location, type }); 
-  console.log("Propiedades recibidas:", properties); 
+  console.log("Filtros desde la URL:", { location, type });
+  console.log("Propiedades recibidas:", properties);
 
-  const filteredProperties = properties.filter(property => {
-    const zoneObj = zonesData.records.find(z => z.id === property.zona);
-    const typeObj = typesData.records.find(t => t.id === property.tipo);
+  const filteredProperties = properties.filter((property) => {
+    const zoneObj = zonesData.records.find((z) => z.id === property.zona);
+    const typeObj = typesData.records.find((t) => t.id === property.tipo);
 
     const zoneName = zoneObj ? zoneObj.nombre.toLowerCase().trim() : "";
     const typeName = typeObj ? typeObj.nombre.toLowerCase().trim() : "";
 
-    console.log(`Propiedad: Zona=${zoneName}, Tipo=${typeName}`); 
+    console.log(`Propiedad: Zona=${zoneName}, Tipo=${typeName}`);
 
-    let matchesLocation = location ? zoneName === location.toLowerCase().trim() : true;
+    let matchesLocation = location
+      ? zoneName === location.toLowerCase().trim()
+      : true;
     let matchesType = type ? typeName === type.toLowerCase().trim() : true;
 
     return matchesLocation && matchesType;
@@ -55,17 +74,20 @@ function filterPropertiesFromURL(properties, zonesData, typesData) {
   return filteredProperties.length ? filteredProperties : [];
 }
 
-
-
 function getQueryParams() {
   const params = new URLSearchParams(window.location.search);
   return {
     location: params.get("location"),
-    type: params.get("tipo")
+    type: params.get("tipo"),
   };
 }
-
-function updateCard({ records: filteredProperties }, data, zonesData, typesData, operationsData) {
+function updateCard(
+  { records: filteredProperties },
+  data,
+  zonesData,
+  typesData,
+  operationsData
+) {
   const container = document.querySelector(".card-container");
   container.innerHTML = "";
 
@@ -74,14 +96,16 @@ function updateCard({ records: filteredProperties }, data, zonesData, typesData,
     container.innerHTML = "<p>No se encontraron propiedades.</p>";
     return;
   }
-  
 
   // console.log("Propiedades encontradas:", data.records.length);
 
   data.records.forEach((property) => {
-    const imageUrl = property.imagenes?.length ? property.imagenes[0] : "/front/src/assets/icons/logo2.png";
-  
+    const imageUrl = property.imagenes?.length
+      ? property.imagenes[0]
+      : "/front/src/assets/icons/logo2.png";
+
     const {
+      nro: propertyId,
       valor: price,
       calle: location,
       ambientes: rooms,
@@ -92,16 +116,16 @@ function updateCard({ records: filteredProperties }, data, zonesData, typesData,
       zona,
       operacion,
     } = property;
-  
+
     const zoneName =
       zonesData?.records?.find((z) => z.id === zona)?.nombre || "";
     const typesName =
       typesData?.records?.find((t) => t.id === tipo)?.nombre || "";
     const operationName =
       operationsData?.records?.find((o) => o.id === operacion)?.nombre || "";
-  
+
     const cardHTML = `
-      <div class="card">
+      <div class="card" data-id="${propertyId}">
           <img src="${imageUrl}" alt="Imagen de la propiedad">
           <div class="card-info">
               <p class="price">U$S ${price} - <span class="operation">En ${operationName}</span></p>
@@ -137,7 +161,13 @@ function updateCard({ records: filteredProperties }, data, zonesData, typesData,
   });
 }
 
-
+document.addEventListener("click", (event) => {
+  const card = event.target.closest(".card");
+  if (card) {
+    const propertyId = card.getAttribute("data-id");
+    window.location.href = `/front/src/property.html?id=${propertyId}`;
+  }
+});
 
 document.querySelector("#dropdown6").addEventListener("click", (event) => {
   if (event.target.textContent.includes("Mayor precio")) {

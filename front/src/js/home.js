@@ -41,7 +41,6 @@ function updateCard(data, zonesData, typesData, operationsData) {
   if (data && Array.isArray(data.records) && data.records.length > 0) {
     console.log("Propiedades encontradas:", data.records.length);
 
-    // Tomamos solo los primeros 4 elementos
     const propertiesToShow = data.records.slice(0, 4);
 
     propertiesToShow.forEach((property) => {
@@ -79,42 +78,3 @@ function updateCard(data, zonesData, typesData, operationsData) {
 document.addEventListener("DOMContentLoaded", function () {
   fetchData();
 });
-
-// function initCarousel() {
-//   const container = document.querySelector(".card-container");
-//   const leftArrow = document.querySelector(".left-arrow");
-//   const rightArrow = document.querySelector(".right-arrow");
-
-//   if (!container || !leftArrow || !rightArrow) {
-//     console.error("Error: No se encontraron elementos del carrusel.");
-//     return;
-//   }
-
-//   let scrollAmount = 0;
-//   const cards = document.querySelectorAll(".card");
-//   if (cards.length === 0) {
-//     console.warn("No hay tarjetas para mostrar en el carrusel.");
-//     return;
-//   }
-
-//   const cardWidth = cards[0].offsetWidth + 20;
-//   const visibleCards = Math.min(6, cards.length);
-//   const maxScroll = Math.min(
-//     (cards.length - visibleCards) * cardWidth,
-//     cardWidth * visibleCards * 1
-//   );
-
-//   const spacer = document.createElement("div");
-//   spacer.style.width = `${120}px`;
-//   spacer.style.flexShrink = "0";
-//   container.appendChild(spacer);
-
-//   leftArrow.addEventListener("click", function () {
-//     scrollAmount = Math.max(scrollAmount - cardWidth * visibleCards, 0);
-//     container.style.transform = `translateX(-${scrollAmount}px)`;
-//   });
-
-//   rightArrow.addEventListener("click", function () {
-//     scrollAmount = Math.min(scrollAmount + cardWidth * visibleCards, maxScroll);
-//     container.style.transform = `translateX(-${scrollAmount}px)`;
-//   });
