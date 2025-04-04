@@ -8,17 +8,41 @@
 }
 
 .property-image img {
-  width: 100%;
-  height: auto;
+  width: 40%;
+  height: 40%;
+  margin: 20px 0;
   border-radius: 10px;
 }
 
 .property-features {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  font-size: 1.1em;
+  padding: 0;
+}
+
+.property-titles {
+  border-bottom: 2px solid #ccc;
+}
+
+.property-features li {
+  display: inline-block;
+  width: 10%;
+  vertical-align: top;
+  margin-bottom: 5px;
+}
+
+.varios-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 0;
+  max-width: 600px;
+}
+
+.varios-list li {
+  background: #f4f4f4;
+  padding: 8px;
+  border-radius: 5px;
 }
 
 .property-map {
@@ -84,10 +108,9 @@
   }
 
   /* Oculta el resto de los elementos */
-  .right-boxes, 
-  .footer, 
+  .right-boxes,
+  .footer,
   .contact-section {
     display: none !important; /* Fuerza que estén ocultos */
   }
 }
-
