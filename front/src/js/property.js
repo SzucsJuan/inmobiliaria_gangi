@@ -21,9 +21,7 @@ async function fetchData() {
       !operationsResponse.ok ||
       !variosResponse.ok
     ) {
-      throw new Error(
-        `Error en la respuesta de la API: ${propsResponse.status} / ${zonesResponse.status} / ${typesResponse.status} / ${operationsResponse.status}`
-      );
+      throw new Error("Error en la respuesta de la API.");
     }
 
     const [propsData, zonesData, typesData, operationsData, variosData] =
@@ -52,37 +50,33 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
 
   const propertyId = getPropertyIdFromURL();
   if (!propertyId) {
-    console.log("No se proporcionó un ID de propiedad.");
     container.innerHTML = "<p>Propiedad no encontrada.</p>";
     return;
   }
 
   const property = data.records.find((prop) => prop.nro == propertyId);
   if (!property) {
-    console.log("Propiedad no encontrada.");
     container.innerHTML = "<p>Propiedad no encontrada.</p>";
     return;
   }
 
-  const imageUrl = property.imagenes?.length
-    ? property.imagenes[0]
-    : "/front/src/assets/icons/logo2.png";
+  const imageUrls = property.imagenes?.length
+    ? property.imagenes
+    : ["/front/src/assets/icons/logo2.png"];
 
   const {
-    nro,
-    inmob: codInmob,
     valor: price,
-    expensas: expensas,
+    expensas,
     calle: location,
     ambientes: rooms,
     dormitorios: bedrooms,
     banios: baños,
-    antiguedad: antiguedad,
+    antiguedad,
     sup_total: surface,
     sup_cubierta: surfaceCovered,
     lote_x: lotWidth,
-    latitud: latitud,
-    longitud: longitud,
+    latitud,
+    longitud,
     tipo,
     zona,
     operacion,
@@ -107,63 +101,96 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
         .join("")
     : "<p>No especificado</p>";
 
-  const propertyHTML = `
-        <div class="property-header">
-            <div class="property-address">${typesName} en ${operationName} <br> ${location} - ${zoneName}</div> 
-            <div class="property-value"> <br> U$S ${price} - Expensas: $ ${expensas}</div>
-        </div>
-        
-        <div class="property-image">
-            <img src="${imageUrl}" alt="Imagen de la propiedad">
-        </div>
-        
-        <h3 class="property-titles">Características</h3>
-        <ul class="property-features">
-            <li>Ambientes: ${rooms}</li>  
-            <li>Dormitorios: ${bedrooms}</li>
-            <li>Baños: ${baños}</li>
-             ${antiguedad ? `<li>Antigüedad: ${antiguedad} años</li>` : ""}
-        </ul>
-        
-        <h3 class="property-titles" style="margin-top: 1em;">Superficie y Medidas</h3>
-        <ul class="property-features">
-            <li>Superficie total: ${surface} m2</li>
-            <li>Superficie cubierta: ${surfaceCovered} m2</li>
-             ${lotWidth ? `<li>Ancho del lote: ${lotWidth} m2</li>` : ""}
-        </ul>
-
-        <h3 class="property-titles" style="margin-top: 1em;">Información adicional</h3>
-        <ul class="varios-list">
-            ${variosList}
-        </ul>
-
-        <h3 class="property-titles" style="margin-top: 2em;">Descripción</h3>
-        <p>${property.descripcion}</p>
-
-        <div class="property-map">
-            <h3>Ubicación</h3>
-            <p>${latitud}, ${longitud}</p>
-            <iframe src=""
-                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-        
-        <form class="contact-form">
-            <h3>Contacto</h3>
-            <label for="name">Nombre</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Correo Electrónico</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="message">Mensaje</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-            
-            <button type="submit">Enviar</button>
-        </form>
+  const galleryHTML = `
+    <div class="swiper mySwiper" style="width: 100%; max-width: 600px; height: 300px; margin-bottom: 20px;">
+      <div class="swiper-wrapper">
+        ${imageUrls
+          .map(
+            (url) => `
+          <div class="swiper-slide">
+            <img src="${url}" alt="Imagen propiedad" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" />
+          </div>`
+          )
+          .join("")}
       </div>
-      `;
+  
+      <!-- Controles -->
+      <div class="swiper-button-next" style="color: white;"></div>
+      <div class="swiper-button-prev" style="color: white;"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  `;
+
+  const propertyHTML = `
+    <div class="property-header">
+      <div class="property-address">${typesName} en ${operationName} <br> ${location} - ${zoneName}</div> 
+      <div class="property-value"> <br> U$S ${price} - Expensas: $ ${expensas}</div>
+    </div>
+
+    ${galleryHTML}
+
+    <h3 class="property-titles">Características</h3>
+    <ul class="property-features">
+      <li>Ambientes: ${rooms}</li>  
+      <li>Dormitorios: ${bedrooms}</li>
+      <li>Baños: ${baños}</li>
+      ${antiguedad ? `<li>Antigüedad: ${antiguedad} años</li>` : ""}
+    </ul>
+
+    <h3 class="property-titles" style="margin-top: 1em;">Superficie y Medidas</h3>
+    <ul class="property-features">
+      <li>Superficie total: ${surface} m2</li>
+      <li>Superficie cubierta: ${surfaceCovered} m2</li>
+      ${lotWidth ? `<li>Ancho del lote: ${lotWidth} m2</li>` : ""}
+    </ul>
+
+    <h3 class="property-titles" style="margin-top: 1em;">Información adicional</h3>
+    <ul class="varios-list">
+      ${variosList}
+    </ul>
+
+    <h3 class="property-titles" style="margin-top: 2em;">Descripción</h3>
+    <p>${property.descripcion}</p>
+
+    <div class="property-map">
+      <h3>Ubicación</h3>
+      <p>${latitud}, ${longitud}</p>
+      <iframe src=""
+          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    
+    <form class="contact-form">
+      <h3>Contacto</h3>
+      <label for="name">Nombre</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Correo Electrónico</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="message">Mensaje</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+      
+      <button type="submit">Enviar</button>
+    </form>
+  `;
 
   container.innerHTML = propertyHTML;
+
+  new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
