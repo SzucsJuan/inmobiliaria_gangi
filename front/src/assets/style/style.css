@@ -88,6 +88,13 @@ nav {
   color: black;
 }
 
+.nav-links a:hover {
+  background-color: #7c0007;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
 .hamburger-menu {
   display: none;
   flex-direction: column;

@@ -1,3 +1,12 @@
+@import "/front/src/assets/fonts/Merriweather/Merriweather-Italic-VariableFont_opsz\,wdth\,wght.ttf";
+@import "/front/src/assets/fonts/Merriweather/Merriweather-VariableFont_opsz\,wdth\,wght.ttf";
+
+:root {
+  --main-color: #7c0007;
+  --secondary-color: #8C5074;
+}
+
+
 .property-header {
   display: flex;
   justify-content: space-between;
@@ -21,13 +30,31 @@
 
 .property-titles {
   border-bottom: 2px solid #ccc;
+  font-size: 1.3em;
 }
 
 .property-features li {
   display: inline-block;
-  width: 10%;
+  width: 20%;
   vertical-align: top;
   margin-bottom: 5px;
+  font-size: 1em;
+}
+
+.property-category {
+  background-color: #8C5074;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-weight: lighter;
+}
+
+.property-operation {
+  background-color: green;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-weight: lighter;
 }
 
 .varios-list {
@@ -56,39 +83,53 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .contact-form h3 {
   margin-bottom: 10px;
-  color: var(--main-color);
 }
 
-.contact-form label {
-  font-weight: bold;
-}
-
-.contact-form input,
-.contact-form textarea {
+input,
+textarea {
   width: 100%;
-  padding: 10px;
+  padding: 1em;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1em;
+  border-radius: 0.3em 0.3em 0.3em 0.3em;
+  transition: all 0.3s ease;
 }
 
-.contact-form button {
+input:hover,
+input:focus {
+  border-color: rgb(213, 62, 74);
+  box-shadow: 0 0 5px rgb(213, 62, 74);
+  outline: none;
+}
+
+textarea {
+  height: 15em;
+}
+
+textarea:hover,
+textarea:focus {
+  border-color: rgb(213, 62, 74);
+  box-shadow: 0 0 5px rgb(213, 62, 74);
+  outline: none;
+}
+
+.send-button {
   background: var(--main-color);
   color: white;
-  border: none;
   padding: 10px;
-  font-size: 1.1em;
-  border-radius: 5px;
+  border: none;
+  border-radius: 0.3em 0.3em 0.3em 0.3em;
   cursor: pointer;
-  transition: background 0.3s;
 }
 
-.contact-form button:hover {
-  background: var(--secondary-color);
+.send-button:hover {
+  background: #a5000a;
 }
 
 @media (max-width: 900px) {

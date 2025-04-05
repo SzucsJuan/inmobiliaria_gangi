@@ -65,6 +65,7 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
     : ["/front/src/assets/icons/logo2.png"];
 
   const {
+    inmob: inmobCode,
     valor: price,
     expensas,
     calle: location,
@@ -102,13 +103,13 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
     : "<p>No especificado</p>";
 
   const galleryHTML = `
-    <div class="swiper mySwiper" style="width: 100%; max-width: 600px; height: 300px; margin-bottom: 20px;">
+    <div class="swiper mySwiper" style="width: 100%; max-width: 800px; height: 600px; margin-bottom: 20px;">
       <div class="swiper-wrapper">
         ${imageUrls
           .map(
             (url) => `
           <div class="swiper-slide">
-            <img src="${url}" alt="Imagen propiedad" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" />
+            <img src="${url}" alt="Imagen propiedad" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
           </div>`
           )
           .join("")}
@@ -123,8 +124,14 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
 
   const propertyHTML = `
     <div class="property-header">
-      <div class="property-address">${typesName} en ${operationName} <br> ${location} - ${zoneName}</div> 
-      <div class="property-value"> <br> U$S ${price} - Expensas: $ ${expensas}</div>
+      <div class="property-address">
+        <span class="property-category">${typesName}</span> 
+        <span class="property-operation">${operationName}</span> <br> 
+        ${location} - ${zoneName}
+      </div> 
+      <div class="property-value">U$S ${price} - Expensas: $ ${expensas ?? ""} 
+        <br> <span style="margin-left: 1em; margin-top: 1em;">Código del inmueble: ${inmobCode}-${propertyId}</span>
+      </div>
     </div>
 
     ${galleryHTML}
@@ -153,24 +160,19 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
     <p>${property.descripcion}</p>
 
     <div class="property-map">
-      <h3>Ubicación</h3>
-      <p>${latitud}, ${longitud}</p>
+      <h3 class="property-titles" style="margin-top: 2em;">Ubicación</h3>
       <iframe src=""
           width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
     
     <form class="contact-form">
-      <h3>Contacto</h3>
-      <label for="name">Nombre</label>
-      <input type="text" id="name" name="name" required>
-      
-      <label for="email">Correo Electrónico</label>
-      <input type="email" id="email" name="email" required>
-      
-      <label for="message">Mensaje</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
-      
-      <button type="submit">Enviar</button>
+      <h3>Quiero que me contacten</h3>
+        <input type="text" id="name" name="name" placeholder="Nombre completo *" required>
+        <input type="email" id="email" name="email" placeholder="Correo *" required>
+        <input type="tel" id="phone" name="phone" placeholder="Teléfono *" required>
+        <input type="text" id="subject" name="subject" placeholder="Asunto *" required>
+        <textarea id="message" name="message" placeholder="Mensaje *" required></textarea>
+        <button type="submit" class="send-button">ENVIAR</button>
     </form>
   `;
 
