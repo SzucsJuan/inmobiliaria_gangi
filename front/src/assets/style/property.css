@@ -42,7 +42,7 @@
 }
 
 .property-category {
-  background-color: #8C5074;
+  background-color: green;
   color: white;
   padding: 2px 8px;
   border-radius: 5px;
@@ -50,7 +50,7 @@
 }
 
 .property-operation {
-  background-color: green;
+  background-color: #8C5074;
   color: white;
   padding: 2px 8px;
   border-radius: 5px;
