@@ -78,6 +78,7 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
     lote_x: lotWidth,
     latitud,
     longitud,
+    descripcion,
     tipo,
     zona,
     operacion,
@@ -103,6 +104,22 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
         })
         .join("")
     : "<p>No especificado</p>";
+
+    // --- Inicio: Lógica del Mapa ---
+    // 1. Verificar si latitud y longitud son números válidos
+    const isValidCoords = typeof latitud === 'number' && typeof longitud === 'number' && !isNaN(latitud) && !isNaN(longitud);
+
+    // 2. Construir la URL del mapa SI las coordenadas son válidas
+    //    ¡¡¡ IMPORTANTE: Reemplaza 'TU_API_KEY' con tu clave API real de Google Maps !!!
+    const mapUrl = isValidCoords
+        ? `https://www.google.com/maps/embed/v1/view?key=AIzaSyCt6gdc1YJzjPpQ8Lzrfajna1f0nCWhzhw&center=${latitud},${longitud}&zoom=16&maptype=roadmap` // Puedes cambiar zoom y maptype (roadmap, satellite, hybrid, terrain)
+        : "";
+
+    // 3. Crear el HTML del mapa (iframe si hay coordenadas, mensaje si no)
+    const mapHTML = isValidCoords
+        ? `<iframe src="${mapUrl}" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        : "<p>La ubicación exacta no está disponible en el mapa.</p>";
+    // --- Fin: Lógica del Mapa ---
 
   const galleryHTML = `
     <div class="swiper mySwiper" style="width: 100%; max-width: 800px; height: 600px; margin-bottom: 20px;">
@@ -166,6 +183,14 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
       <iframe src=""
           width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
+
+    <h3 class="property-titles" style="margin-top: 2em;">Descripción</h3>
+      <p>${descripcion || "Descripción no disponible."}</p>  
+      <div class="property-map">                           
+      <h3 class="property-titles" style="margin-top: 2em;">Ubicación</h3>
+        ${mapHTML}
+    </div>  
+
     
     <form class="contact-form">
       <h3>Quiero que me contacten</h3>
