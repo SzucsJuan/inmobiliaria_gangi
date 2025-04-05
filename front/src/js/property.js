@@ -93,6 +93,8 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
     operationsData?.records?.find((o) => o.id === operacion)?.nombre ||
     "Operación desconocida";
 
+  document.title = `${typesName} en ${operationName} en ${zoneName}`;
+
   const variosList = property.varios
     ? property.varios
         .map((varioId) => {
@@ -138,16 +140,16 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
 
     <h3 class="property-titles">Características</h3>
     <ul class="property-features">
-      <li>Ambientes: ${rooms}</li>  
-      <li>Dormitorios: ${bedrooms}</li>
-      <li>Baños: ${baños}</li>
+      <li>Ambientes: ${rooms ?? "No especificado"}</li>  
+      <li>Dormitorios: ${bedrooms ?? "No especificado"}</li>
+      <li>Baños: ${baños ?? "No especificado"}</li>
       ${antiguedad ? `<li>Antigüedad: ${antiguedad} años</li>` : ""}
     </ul>
 
     <h3 class="property-titles" style="margin-top: 1em;">Superficie y Medidas</h3>
     <ul class="property-features">
-      <li>Superficie total: ${surface} m2</li>
-      <li>Superficie cubierta: ${surfaceCovered} m2</li>
+      ${surface ? `<li>Superficie total: ${surface} m2</li>` : ""}
+      ${surfaceCovered ? `<li>Superficie cubierta: ${surfaceCovered} m2</li>` : ""}
       ${lotWidth ? `<li>Ancho del lote: ${lotWidth} m2</li>` : ""}
     </ul>
 
