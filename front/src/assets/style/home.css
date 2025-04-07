@@ -241,49 +241,51 @@
 
 /* -------------------RESPONSIVE -----------------*/
 
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 48px;
+/* RESPONSIVE DESKTOP < 1920px */
+@media (max-width: 1919px) {
+  .card {
+    flex: 0 0 calc(25% - 20px);
+    max-width: calc(25% - 20px);
   }
+}
 
-  .hero p {
-    font-size: 20px;
-  }
-
-  .search-bar {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .search-box {
-    width: 100%;
-  }
-
-  .search-bar button {
-    width: 100%;
-  }
-
+/* RESPONSIVE TABLET */
+@media (max-width: 1024px) {
   .card-container {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .card {
-    width: 90%;
-    max-width: 400px;
-    margin: 10px auto;
+    flex: 0 0 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 600px) {
+  .card {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 
-  .view-all-btn-responsive {
-    display: block;
-    background-color: white;
-    color: #7c0007;
-    padding: 10px 20px;
-    margin-bottom: -60px;
-    border: 2px solid #7c0007;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 0;
+  .featured-properties {
+    padding: 20px 20px;
+  }
+
+  .featured-properties h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .featured-properties p {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .button-view-all {
+    justify-content: center;
+    padding-right: 0;
+    margin-top: 20px;
   }
 }
