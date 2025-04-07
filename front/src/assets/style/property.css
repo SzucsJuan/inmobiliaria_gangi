@@ -64,9 +64,26 @@
 
 .property-value {
   font-weight: bolder;
+  color: #302e2e;
   font-size: 1.1em;
   letter-spacing: 1px;
 }
+
+.property-price {
+  color: #8C5074;
+  font-size: 1.1em;
+}
+
+.property-exp {
+  color: #302e2e;
+  font-size: 1.1em;
+}
+
+.property-code {
+  font-size: 18px;
+  font-weight: normal;
+}
+
 
 .varios-list {
   list-style: none;

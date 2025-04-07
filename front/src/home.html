@@ -22,7 +22,7 @@
       <div class="overlay"></div>
       <div class="hero-content">
         <h1>Encontrá tu propiedad ideal</h1>
-        <!-- <p>Es tan sencillo como seleccionar la ubicación soñada y tu tipo de hogar ideal, nosotros nos encargamos del resto.</p> -->
+        <p>Selecciona la ubicacion y tipo de vivienda de preferencia, nosotros nos encargamos de brindarte opciones según tus elecciones.</p>
         <div class="search-bar">
           <div class="search-box">
             <select id="location-select">
@@ -61,7 +61,7 @@
     const location = document.getElementById("location-select").value;
     const type = document.getElementById("type-select").value;
 
-    // Verificamos que ambos filtros tengan valores seleccionados antes de redirigir
+  
     if (location && type) {
         window.location.href = `property-list.html?location=${location}&tipo=${type}`;
     } else {
@@ -75,8 +75,7 @@
 
   <section class="featured-properties">
     <h2>Propiedades destacadas</h2>
-    <p>Desde una lujuriosa casa en los centros mas poblados<br>
-      hasta una confortante vivienda con todas sus comodidades alejada de la zona rural.</p>
+    <p>Una seleccion de nuestras propiedades destacadas que pueden llegar a interesarte.</p>
   </section>
 
   <section class="properties-section">

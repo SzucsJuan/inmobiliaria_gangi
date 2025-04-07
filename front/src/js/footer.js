@@ -19,21 +19,20 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="categories">
         <h3 class="property-footer-title">¿Qué estás buscando?</h3>
         <ul>
-          <li class="property-type"><a href="#departamentos" style="text-decoration: none; color: white;">Departamentos</a></li>
-          <li class="property-type"><a href="#locales" style="text-decoration: none; color: white;">Locales</a></li>
-          <li class="property-type"><a href="#casas" style="text-decoration: none; color: white;">Casas</a></li>
-          <li class="property-type"><a href="#lotes" style="text-decoration: none; color: white;">Lotes</a></li>
-          <li class="property-type"><a href="#galpones" style="text-decoration: none; color: white;">Galpones</a></li>
-          <li class="property-type"><a href="#oficinas" style="text-decoration: none; color: white;">Oficinas</a></li>
-          <li class="property-type"><a href="#ph" style="text-decoration: none; color: white;">PH</a></li>
+          <li class="property-type"><a href="/front/src/property-list.html" style="text-decoration: none; color: white;">Propiedades</a></li>
+          <li class="property-type"><a href="/front/src/contact.html" style="text-decoration: none; color: white;">Contacto</a></li>
         </ul>
       </div>
-      <div class="socials">
-        <h3 class="property-footer-title">Nuestras redes</h3>
-        <div style="justify-items: flex-start; display: flex; gap: 0.5em;">
-          <img src="/front/src/assets/icons/icons8-whatsapp-50.png" alt="WhatsApp">
-          <img src="/front/src/assets/icons/instagram-48.png" alt="Instagram">
-        </div>
+       <div class="socials">
+          <h3 class="property-footer-title">Nuestras redes</h3>
+          <div style="justify-items: flex-start; display: flex; gap: 0.5em; align-items: center;"> <a href="https://wa.me/5491165779585" target="_blank" rel="noopener noreferrer">
+          <img src="/front/src/assets/icons/icons8-whatsapp-50.png" alt="WhatsApp" style="display: block; width: 48px; height: 48px;"> </a>
+
+          <a href="https://www.instagram.com/inmobiliaria_gangi/" target="_blank" rel="noopener noreferrer">
+          <img src="/front/src/assets/icons/instagram-48.png" alt="Instagram" style="display: block; width: 48px; height: 48px;"> </a>
+
+  </div>
+</div>
 
       </div>
     </div>
