@@ -6,7 +6,6 @@
   --secondary-color: #8C5074;
 }
 
-
 .property-header {
   display: flex;
   justify-content: space-between;
@@ -57,6 +56,18 @@
   font-weight: lighter;
 }
 
+.property-zone {
+  font-weight: bolder;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+
+.property-value {
+  font-weight: bolder;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+
 .varios-list {
   list-style: none;
   display: grid;
@@ -93,7 +104,7 @@ textarea {
   width: 100%;
   padding: 1em;
   border: 1px solid #ccc;
-  border-radius: 0.3em 0.3em 0.3em 0.3em;
+  border-radius: 0.3em;
   transition: all 0.3s ease;
 }
 
@@ -120,7 +131,7 @@ textarea:focus {
   color: white;
   padding: 10px;
   border: none;
-  border-radius: 0.3em 0.3em 0.3em 0.3em;
+  border-radius: 0.3em;
   cursor: pointer;
 }
 
@@ -128,26 +139,205 @@ textarea:focus {
   background: #a5000a;
 }
 
-@media (max-width: 900px) {
-  .container {
-    flex-direction: column; /* Cambia a disposición vertical */
-    align-items: stretch; /* Asegura que los elementos ocupen el ancho completo */
-    gap: 20px; /* Espaciado entre elementos */
+
+
+/* RESPONSIVE TABLET */
+@media (max-width: 1024px) {
+  .property-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1.05em;
+    gap: 10px;
   }
 
-  .left-box {
-    display: block !important; /* Fuerza que esté visible */
-    width: 100%; /* Ocupa todo el ancho disponible */
-    max-width: 800px; /* Limita el ancho máximo */
-    height: auto; /* Ajusta dinámicamente la altura */
-    background-color: #ddd; /* Fondo visible para pruebas */
-    padding: 20px; /* Agrega un padding para asegurar contenido visible */
+  .property-address,
+  .property-value {
+    width: 100%;
   }
 
-  /* Oculta el resto de los elementos */
-  .right-boxes,
-  .footer,
-  .contact-section {
-    display: none !important; /* Fuerza que estén ocultos */
+  .property-category,
+  .property-operation {
+    display: inline-block;
+    font-size: 0.95em;
+    padding: 4px 10px;
+    margin: 4px;
+  }
+
+  .property-image img {
+    width: 60%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+  }
+
+  .property-titles {
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .property-features li {
+    width: 33.33%;
+    font-size: 0.95em;
+    text-align: center;
+  }
+
+  .varios-list {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
+
+  .varios-list li {
+    font-size: 0.95em;
+    text-align: center;
+  }
+
+  .contact-form {
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  .contact-form h3 {
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  input,
+  textarea {
+    font-size: 1em;
+  }
+
+  .send-button {
+    font-size: 1em;
+  }
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 600px) {
+  .property-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95em;
+  }
+
+  .property-address {
+    font-size: 1em;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .property-zone {
+    font-size: 1em;
+    display: block;
+    margin-top: 0.5em;
+  }
+
+  .property-value {
+    font-size: 1em;
+    line-height: 1.4;
+  }
+
+  .property-value span {
+    display: block;
+    margin-top: 0.5em;
+    margin-left: 0;
+    font-size: 0.9em;
+  }
+
+  .property-image img {
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+  }
+
+  .property-titles {
+    font-size: 1.05em;
+    margin-top: 1em;
+  }
+
+  .property-features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .property-features li {
+    width: 100%;
+    font-size: 0.80em;
+  }
+
+  .varios-list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .varios-list li {
+    font-size: 0.80em;
+  }
+
+  .property-map {
+    margin-top: 15px;
+  }
+
+  .contact-form {
+    padding: 15px;
+    margin: 20px 10px;
+    max-width: 100%;
+  }
+
+  .contact-form h3 {
+    font-size: 1.1em;
+  }
+
+  input,
+  textarea {
+    font-size: 0.95em;
+  }
+
+  .send-button {
+    font-size: 1em;
+    padding: 12px;
+  }
+
+  p {
+    font-size: 0.90em;
+    line-height: 1.5;
+  }
+
+  h3.property-titles {
+    font-size: 1.05em;
+  }
+
+  .property-category,
+  .property-operation {
+    display: inline-block;
+    font-size: 0.9em;
+    padding: 3px 8px;
+    margin: 5px;
+  }
+}
+
+/* RESPONSIVE DESKTOP ( menor a 1920px) */
+@media (max-width: 1919px) {
+  .property-header {
+    font-size: 1.2em;
+  }
+
+  .property-image img {
+    width: 40%;
+  }
+
+  .property-features li {
+    width: 20%;
+  }
+
+  .varios-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact-form {
+    max-width: 700px;
   }
 }

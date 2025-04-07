@@ -106,20 +106,16 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
     : "<p>No especificado</p>";
 
   // --- Inicio: Lógica del Mapa ---
-  // 1. Verificar si latitud y longitud son números válidos
   const isValidCoords =
     typeof latitud === "number" &&
     typeof longitud === "number" &&
     !isNaN(latitud) &&
     !isNaN(longitud);
 
-  // 2. Construir la URL del mapa SI las coordenadas son válidas
-  //    ¡¡¡ IMPORTANTE: Reemplaza 'TU_API_KEY' con tu clave API real de Google Maps !!!
   const mapUrl = isValidCoords
-    ? `https://www.google.com/maps/embed/v1/place?key=AIzaSyCt6gdc1YJzjPpQ8Lzrfajna1f0nCWhzhw&q=${latitud},${longitud}&zoom=16&maptype=roadmap` // Puedes cambiar zoom y maptype (roadmap, satellite, hybrid, terrain)
+    ? `https://www.google.com/maps/embed/v1/place?key=AIzaSyCt6gdc1YJzjPpQ8Lzrfajna1f0nCWhzhw&q=${latitud},${longitud}&zoom=16&maptype=roadmap`
     : "";
 
-  // 3. Crear el HTML del mapa (iframe si hay coordenadas, mensaje si no)
   const mapHTML = isValidCoords
     ? `<iframe src="${mapUrl}" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
     : "<p>La ubicación exacta no está disponible en el mapa.</p>";
@@ -149,7 +145,7 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
       <div class="property-address">
         <span class="property-category">${typesName}</span> 
         <span class="property-operation">${operationName}</span> <br> 
-        ${location} - ${zoneName}
+        <span class="property-zone">${location} - ${zoneName}</span>
       </div> 
       <div class="property-value">U$S ${price} - Expensas: $ ${expensas ?? ""} 
         <br> <span style="margin-left: 1em; margin-top: 1em;">Código del inmueble: ${inmobCode}-${propertyId}</span>
