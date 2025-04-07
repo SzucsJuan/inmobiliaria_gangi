@@ -48,6 +48,7 @@ function updateCard(data, zonesData, typesData, operationsData) {
         const imageUrl = property.imagenes[0];
         const price = property.valor;
         const street = property.calle;
+        const propertyId = property.nro;
 
         const zoneName =
           zonesData?.records?.find((z) => z.id === property.zona)?.nombre || "";
@@ -59,6 +60,7 @@ function updateCard(data, zonesData, typesData, operationsData) {
 
         const card = document.createElement("div");
         card.classList.add("card");
+        card.setAttribute("data-id", propertyId);
         card.innerHTML = `
           <img src="${imageUrl}" alt="Imagen de la propiedad">
           <p class="price">U$S ${price} - <span class="operation">En ${operationName}</span></p>
@@ -74,6 +76,16 @@ function updateCard(data, zonesData, typesData, operationsData) {
     container.innerHTML = "<p>No se encontraron propiedades.</p>";
   }
 }
+
+document.querySelector(".card-container").addEventListener("click", (event) => {
+  const card = event.target.closest(".card");
+  if (card) {
+    const propertyId = card.getAttribute("data-id");
+    if (propertyId) {
+      window.location.href = `/front/src/property.html?id=${propertyId}`;
+    }
+  }
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   fetchData();

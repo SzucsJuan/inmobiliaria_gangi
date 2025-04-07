@@ -138,7 +138,6 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
           .join("")}
       </div>
   
-      <!-- Controles -->
       <div class="swiper-button-next" style="color: white;"></div>
       <div class="swiper-button-prev" style="color: white;"></div>
       <div class="swiper-pagination"></div>
