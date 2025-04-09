@@ -188,7 +188,7 @@
   color: #8C5074;
 }
 
-
+/* === Tablet === */
 
 
 @media screen and (max-width: 1024px) {
@@ -227,6 +227,7 @@
     bottom: 15px;
   }
 }
+
 
 /* === Mobile === */
 @media screen and (max-width: 768px) {

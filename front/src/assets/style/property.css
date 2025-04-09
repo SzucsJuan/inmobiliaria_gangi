@@ -3,7 +3,7 @@
 
 :root {
   --main-color: #7c0007;
-  --secondary-color: #8C5074;
+  --secondary-color: #8c5074;
 }
 
 .property-header {
@@ -13,13 +13,6 @@
   font-weight: bold;
   padding: 10px 0;
   border-bottom: 2px solid #ccc;
-}
-
-.property-image img {
-  width: 40%;
-  height: 40%;
-  margin: 20px 0;
-  border-radius: 10px;
 }
 
 .property-features {
@@ -49,7 +42,7 @@
 }
 
 .property-operation {
-  background-color: #8C5074;
+  background-color: #8c5074;
   color: white;
   padding: 2px 8px;
   border-radius: 5px;
@@ -70,7 +63,7 @@
 }
 
 .property-price {
-  color: #8C5074;
+  color: #8c5074;
   font-size: 1.1em;
 }
 
@@ -83,7 +76,6 @@
   font-size: 18px;
   font-weight: normal;
 }
-
 
 .varios-list {
   list-style: none;
@@ -155,8 +147,6 @@ textarea:focus {
 .send-button:hover {
   background: #a5000a;
 }
-
-
 
 /* RESPONSIVE TABLET */
 @media (max-width: 1024px) {
@@ -231,6 +221,10 @@ textarea:focus {
 
 /* RESPONSIVE MOBILE */
 @media (max-width: 600px) {
+  .swiper {
+    height: 300px !important; /* aseguramos altura en mobile */
+  }
+
   .property-header {
     flex-direction: column;
     align-items: center;
@@ -282,7 +276,7 @@ textarea:focus {
 
   .property-features li {
     width: 100%;
-    font-size: 0.80em;
+    font-size: 0.8em;
   }
 
   .varios-list {
@@ -291,7 +285,7 @@ textarea:focus {
   }
 
   .varios-list li {
-    font-size: 0.80em;
+    font-size: 0.8em;
   }
 
   .property-map {
@@ -319,7 +313,7 @@ textarea:focus {
   }
 
   p {
-    font-size: 0.90em;
+    font-size: 0.9em;
     line-height: 1.5;
   }
 
