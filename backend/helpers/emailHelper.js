@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 
-const userGmail = "up.byte1@gmail.com";
-const passAppGmail = "mmdh lvtj icmo epii";
+const userGmail = "diegogangi@estudiogangi.com.ar";
+const passAppGmail = ""; //completar con app password
 
 const emailHelper = async (name, to, subject, phone, text) => {
   let transporter = nodemailer.createTransport({
@@ -14,7 +14,7 @@ const emailHelper = async (name, to, subject, phone, text) => {
 
   let mailOptions = {
     from: name,
-    to: "up.byte1@gmail.com",
+    to: `${userGmail}`,
     subject: subject,
     text: `Nombre: ${name}\nCorreo: ${to}\nTeléfono: ${phone}\n\nMensaje:\n${text}`,
   };

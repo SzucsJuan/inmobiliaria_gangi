@@ -151,12 +151,14 @@ function updateCard(
               <div class="aditional-info">
                   <p>${description}</p>
               </div>
-              <div class="whatsapp-icon">
-                  <a href="https://wa.me/" target="_blank"><img src="/front/src/assets/icons/icons8-whatsapp-50.png" alt="WhatsApp"></a>
-              </div>
+
           </div>
       </div>
     `;
+//     Icono WP (ingresar dentro de cardHTML)
+//     <div class="whatsapp-icon">
+//     <a href="https://wa.me/" target="_blank"><img src="/front/src/assets/icons/icons8-whatsapp-50.png" alt="WhatsApp"></a>
+// </div>
     container.innerHTML += cardHTML;
   });
 }

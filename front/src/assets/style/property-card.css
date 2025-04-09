@@ -187,3 +187,109 @@
   font-size: 20px;
   color: #8C5074;
 }
+
+
+
+
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 90%; /* reducimos el ancho */
+    height: auto; /* altura dinámica */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card img:not(.location-icon):not(.house-icon):not(.surface-icon):not(.whatsapp-icon img) {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .card-content {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .precio-box {
+    top: 15px;
+    right: 15px;
+  }
+
+  .details {
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .whatsapp-icon {
+    right: 15px;
+    bottom: 15px;
+  }
+}
+
+/* === Mobile === */
+@media screen and (max-width: 768px) {
+  .card-container {
+    gap: 20px;
+  }
+
+  .card {
+    width: 95%;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .card img:not(.location-icon):not(.house-icon):not(.surface-icon):not(.whatsapp-icon img) {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+
+  .card-content {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .card h2 {
+    font-size: 20px;
+  }
+
+  .card p,
+  .location,
+  .aditional-info p {
+    font-size: 14px;
+  }
+
+  .card .price {
+    font-size: 20px;
+  }
+
+  .card .type {
+    font-size: 16px;
+  }
+
+  .details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .precio-box {
+    top: 10px;
+    right: 10px;
+  }
+
+  .whatsapp-icon {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .contact a {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .operation {
+    font-size: 18px;
+  }
+}
