@@ -26,10 +26,10 @@ document.addEventListener("DOMContentLoaded", function () {
        <div class="socials">
           <h3 class="property-footer-title">Nuestras redes</h3>
           <div style="justify-items: flex-start; display: flex; gap: 0.5em; align-items: center;"> <a href="https://wa.me/5491165779585" target="_blank" rel="noopener noreferrer">
-          <img src="/front/src/assets/icons/icons8-whatsapp-50.png" alt="WhatsApp" style="display: block; width: 35px; height: 35px;"> </a>
+          <img src="/front/src/assets/icons/icons8-whatsapp-50.png" alt="WhatsApp" style="display: block; width: 32px; height: 32px;"> </a>
 
           <a href="https://www.instagram.com/inmobiliaria_gangi/" target="_blank" rel="noopener noreferrer">
-          <img src="/front/src/assets/icons/instagram-48.png" alt="Instagram" style="display: block; width: 35px; height: 35px;"> </a>
+          <img src="/front/src/assets/icons/instagram-48.png" alt="Instagram" style="display: block; width: 32px; height: 32px;"> </a>
 
   </div>
 </div>
