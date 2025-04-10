@@ -49,8 +49,8 @@ async function fetchData() {
 function filterPropertiesFromURL(properties, zonesData, typesData) {
   const { location, type } = getQueryParams();
 
-  console.log("Filtros desde la URL:", { location, type });
-  console.log("Propiedades recibidas:", properties);
+  // console.log("Filtros desde la URL:", { location, type });
+  // console.log("Propiedades recibidas:", properties);
 
   const filteredProperties = properties.filter((property) => {
     const zoneObj = zonesData.records.find((z) => z.id === property.zona);
@@ -59,7 +59,7 @@ function filterPropertiesFromURL(properties, zonesData, typesData) {
     const zoneName = zoneObj ? zoneObj.nombre.toLowerCase().trim() : "";
     const typeName = typeObj ? typeObj.nombre.toLowerCase().trim() : "";
 
-    console.log(`Propiedad: Zona=${zoneName}, Tipo=${typeName}`);
+    // console.log(`Propiedad: Zona=${zoneName}, Tipo=${typeName}`);
 
     let matchesLocation = location
       ? zoneName === location.toLowerCase().trim()
@@ -69,7 +69,7 @@ function filterPropertiesFromURL(properties, zonesData, typesData) {
     return matchesLocation && matchesType;
   });
 
-  console.log("Propiedades filtradas:", filteredProperties);
+  // console.log("Propiedades filtradas:", filteredProperties);
 
   return filteredProperties.length ? filteredProperties : [];
 }
