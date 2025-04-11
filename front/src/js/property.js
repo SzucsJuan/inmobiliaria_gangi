@@ -140,14 +140,27 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
     </div>
   `;
 
+  const breadcrumbHTML = `
+  <nav class="breadcrumb-container">
+    <ul class="breadcrumb">
+      <li><a href="/front/src/home.html">Inicio</a></li>
+      <li><a href="/front/src/property-list.html">Propiedades</a></li>
+      <li class="active">${typesName} en ${location} - ${zoneName}</li>
+    </ul>
+  </nav>
+`;
+
   const propertyHTML = `
+  ${breadcrumbHTML}
     <div class="property-header">
       <div class="property-address">
         <span class="property-category">${typesName}</span> 
         <span class="property-operation">${operationName}</span> <br> 
         <span class="property-zone">${location} - ${zoneName}</span>
       </div> 
-      <div class="property-value"><span class="property-price">U$S ${price}</span> - <span class="property-exp">Expensas: $ ${expensas ?? ""}</span> 
+      <div class="property-value"><span class="property-price">U$S ${price}</span> - <span class="property-exp">Expensas: $ ${
+    expensas ?? ""
+  }</span> 
         <br> <span class="property-code">Código del inmueble: ${inmobCode}-${propertyId}</span>
       </div>
     </div>
@@ -202,24 +215,24 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
 
   if (contactFormElement) {
     contactFormElement.addEventListener("submit", async function (event) {
-      event.preventDefault(); 
+      event.preventDefault();
 
-      const submitButton = this.querySelector('.send-button');
+      const submitButton = this.querySelector(".send-button");
       const originalButtonText = submitButton.textContent;
 
       submitButton.disabled = true;
-      submitButton.textContent = 'Enviando...';
+      submitButton.textContent = "Enviando...";
 
       const formData = {
         name: document.getElementById("name").value,
-        to: document.getElementById("email").value, 
+        to: document.getElementById("email").value,
         phone: document.getElementById("phone").value,
         subject: document.getElementById("subject").value,
         text: document.getElementById("message").value,
       };
 
       try {
-        let response = await fetch("http://localhost:3000/api/send-email", { 
+        let response = await fetch("http://localhost:3000/api/send-email", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -228,27 +241,35 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
         });
 
         if (response.ok) {
-          let result = await response.text(); 
+          let result = await response.text();
           console.log("Respuesta del servidor:", result);
-          alert('Mail enviado correctamente. Nos pondremos en contacto pronto.');
-          this.reset(); 
+          alert(
+            "Mail enviado correctamente. Nos pondremos en contacto pronto."
+          );
+          this.reset();
         } else {
-
           let errorText = await response.text();
           console.error("Error del servidor:", response.status, errorText);
-          alert(`Error al enviar el mail (${response.status}): ${errorText || 'Inténtalo de nuevo más tarde.'}`);
+          alert(
+            `Error al enviar el mail (${response.status}): ${
+              errorText || "Inténtalo de nuevo más tarde."
+            }`
+          );
         }
-
       } catch (error) {
         console.error("Error en la comunicación con el servidor:", error);
-        alert('Error de conexión al intentar enviar el mail. Revisa tu conexión o inténtalo más tarde.');
+        alert(
+          "Error de conexión al intentar enviar el mail. Revisa tu conexión o inténtalo más tarde."
+        );
       } finally {
-         submitButton.disabled = false; 
-         submitButton.textContent = originalButtonText; 
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
       }
     });
   } else {
-    console.error("Error: El formulario con ID 'contactForm' no se encontró después de añadir el HTML.");
+    console.error(
+      "Error: El formulario con ID 'contactForm' no se encontró después de añadir el HTML."
+    );
   }
 
   new Swiper(".mySwiper", {
@@ -267,8 +288,6 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
     },
   });
 }
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
   fetchData();

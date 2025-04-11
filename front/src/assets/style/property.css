@@ -148,6 +148,43 @@ textarea:focus {
   background: #a5000a;
 }
 
+.breadcrumb-container {
+  padding-left: 0;
+  margin-left: 0;
+  margin-bottom: 10px;
+}
+
+.breadcrumb {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1em;
+  margin-left: 0;
+  padding-left: 0;
+  white-space: nowrap;
+  gap: 4px;
+}
+
+.breadcrumb li + li::before {
+  content: "›";
+  padding: 0 2px;
+  color: #666;
+}
+
+.breadcrumb li a {
+  text-decoration: none;
+  color: black;
+}
+
+.breadcrumb li a:hover {
+  text-decoration: underline;
+  color: #7c0007;
+}
+
+.breadcrumb .active {
+  color: #6c757d;
+}
+
 /* RESPONSIVE TABLET */
 @media (max-width: 1024px) {
   .property-header {
@@ -216,6 +253,12 @@ textarea:focus {
 
   .send-button {
     font-size: 1em;
+  }
+
+  .breadcrumb {
+    font-size: 13px;
+    padding: 6px 0;
+    margin: 0 20px;
   }
 }
 
@@ -327,6 +370,16 @@ textarea:focus {
     font-size: 0.9em;
     padding: 3px 8px;
     margin: 5px;
+  }
+
+  .breadcrumb {
+    font-size: 12px;
+    padding: 4px 0;
+    margin: 0 10px;
+  }
+
+  .breadcrumb li + li::before {
+    padding: 0 4px;
   }
 }
 
