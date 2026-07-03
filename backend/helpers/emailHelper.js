@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 
-const userGmail = "juliandgangi@gmail.com";
-const passAppGmail = "halh aimt oayf xtfx"; 
+const userGmail = process.env.EMAIL_USER;
+const passAppGmail = process.env.EMAIL_PASS;
 
 const emailHelper = async (name, to, subject, phone, text) => {
   let transporter = nodemailer.createTransport({

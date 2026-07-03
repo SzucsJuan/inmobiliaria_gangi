@@ -1,36 +1,13 @@
 async function fetchData() {
+  const container = document.querySelector(".card-container");
+  container.innerHTML = "<p>Cargando propiedades...</p>";
   try {
-    const [propsResponse, zonesResponse, typesResponse, operationsResponse] =
-      await Promise.all([
-        fetch("http://localhost:3000/api/props"),
-        fetch("http://localhost:3000/api/zones"),
-        fetch("http://localhost:3000/api/types"),
-        fetch("http://localhost:3000/api/operations-status"),
-      ]);
-
-    if (
-      !propsResponse.ok ||
-      !zonesResponse.ok ||
-      !typesResponse.ok ||
-      !operationsResponse.ok
-    ) {
-      throw new Error(
-        `Error en la respuesta de la API: ${propsResponse.status} / ${operationsResponse.status} / ${zonesResponse.status} / ${typesResponse.status}`
-      );
-    }
-
-    const [propsData, zonesData, typesData, operationsData] = await Promise.all(
-      [
-        propsResponse.json(),
-        zonesResponse.json(),
-        typesResponse.json(),
-        operationsResponse.json(),
-      ]
-    );
-
-    updateCard(propsData, zonesData, typesData, operationsData);
+    const { props, zones, types, operations } = await fetchListingData();
+    updateCard(props, zones, types, operations);
   } catch (error) {
     console.error("Error al obtener los datos:", error);
+    container.innerHTML =
+      "<p>No se pudieron cargar las propiedades. Intentá de nuevo más tarde.</p>";
   }
 }
 
@@ -65,7 +42,7 @@ function updateCard(data, zonesData, typesData, operationsData) {
           <img src="${imageUrl}" alt="Imagen de la propiedad">
           <p class="price">U$S ${price} - <span class="operation">En ${operationName}</span></p>
           <p class="street">${typesName}</p>
-          <h2 class="street"><img src="/front/src/assets/icons/location-icon.png" alt="Ubicación" class="location-icon">${street} 
+          <h2 class="street"><img src="/assets/icons/location-icon.png" alt="Ubicación" class="location-icon">${street} 
               <br> <span class="zone" style='margin-left: 19px;'>${zoneName}</span></h2>
         `;
         container.appendChild(card);
@@ -82,7 +59,7 @@ document.querySelector(".card-container").addEventListener("click", (event) => {
   if (card) {
     const propertyId = card.getAttribute("data-id");
     if (propertyId) {
-      window.location.href = `/front/src/property.html?id=${propertyId}`;
+      window.location.href = `/property.html?id=${propertyId}`;
     }
   }
 });

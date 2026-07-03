@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("/front/src/assets/icons/home-card.jpg");
+  background-image: url("/assets/icons/home-card.jpg");
   background-size: cover;
   background-position: center;
   position: relative;

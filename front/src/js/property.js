@@ -1,41 +1,15 @@
 async function fetchData() {
+  const container = document.querySelector(".main-content");
+  container.innerHTML = "<p>Cargando propiedad...</p>";
   try {
-    const [
-      propsResponse,
-      zonesResponse,
-      typesResponse,
-      operationsResponse,
-      variosResponse,
-    ] = await Promise.all([
-      fetch("http://localhost:3000/api/props"),
-      fetch("http://localhost:3000/api/zones"),
-      fetch("http://localhost:3000/api/types"),
-      fetch("http://localhost:3000/api/operations-status"),
-      fetch("http://localhost:3000/api/varios"),
-    ]);
-
-    if (
-      !propsResponse.ok ||
-      !zonesResponse.ok ||
-      !typesResponse.ok ||
-      !operationsResponse.ok ||
-      !variosResponse.ok
-    ) {
-      throw new Error("Error en la respuesta de la API.");
-    }
-
-    const [propsData, zonesData, typesData, operationsData, variosData] =
-      await Promise.all([
-        propsResponse.json(),
-        zonesResponse.json(),
-        typesResponse.json(),
-        operationsResponse.json(),
-        variosResponse.json(),
-      ]);
-
-    propertyInfo(propsData, zonesData, typesData, operationsData, variosData);
+    const { props, zones, types, operations, varios } = await fetchListingData({
+      includeVarios: true,
+    });
+    propertyInfo(props, zones, types, operations, varios);
   } catch (error) {
     console.error("Error al obtener los datos:", error);
+    container.innerHTML =
+      "<p>No se pudo cargar la propiedad. Intentá de nuevo más tarde.</p>";
   }
 }
 
@@ -62,7 +36,7 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
 
   const imageUrls = property.imagenes?.length
     ? property.imagenes
-    : ["/front/src/assets/icons/logo2.png"];
+    : ["/assets/icons/logo2.png"];
 
   const {
     inmob: inmobCode,
@@ -143,8 +117,8 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
   const breadcrumbHTML = `
   <nav class="breadcrumb-container">
     <ul class="breadcrumb">
-      <li><a href="/front/src/home.html">Inicio</a></li>
-      <li><a href="/front/src/property-list.html">Propiedades</a></li>
+      <li><a href="/home.html">Inicio</a></li>
+      <li><a href="/property-list.html">Propiedades</a></li>
       <li class="active">${typesName} en ${location} - ${zoneName}</li>
     </ul>
   </nav>
@@ -232,7 +206,7 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
       };
 
       try {
-        let response = await fetch("http://localhost:3000/api/send-email", {
+        let response = await fetch(`${API_BASE_URL}/send-email`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -1,5 +1,5 @@
-@import "/front/src/assets/fonts/Merriweather/Merriweather-Italic-VariableFont_opsz\,wdth\,wght.ttf";
-@import "/front/src/assets/fonts/Merriweather/Merriweather-VariableFont_opsz\,wdth\,wght.ttf";
+@import "/assets/fonts/Merriweather/Merriweather-Italic-VariableFont_opsz\,wdth\,wght.ttf";
+@import "/assets/fonts/Merriweather/Merriweather-VariableFont_opsz\,wdth\,wght.ttf";
 
 :root {
   --main-color: #7c0007;
