@@ -3,7 +3,26 @@
 
 :root {
   --main-color: #7c0007;
+  --main-color-hover: #9c1018;
+  --main-color-tint: #fbeceb;
   --secondary-color: #8C5074;
+  --text-color: #2a2626;
+  --text-muted: #6f6f6f;
+  --border-color: #e6e1dc;
+  --bg-page: #faf8f6;
+  --bg-card: #ffffff;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 3px rgba(30, 15, 15, 0.08);
+  --shadow-md: 0 8px 24px rgba(30, 15, 15, 0.10);
+  --shadow-lg: 0 16px 40px rgba(30, 15, 15, 0.16);
+
+  --font-serif: "Merriweather", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -20,9 +39,14 @@ body {
   flex-direction: column;
   width: 100%;
   overflow-x: hidden;
-  font-family: 'Merriweather', serif;
+  font-family: var(--font-sans);
+  color: var(--text-color);
+  background: var(--bg-page);
 }
 
+h1, h2, h3 {
+  font-family: var(--font-serif);
+}
 
 .footer-logo {
   height: 100px;
@@ -51,6 +75,7 @@ header {
   align-items: center;
   padding: 15px 50px;
   background: #f5f5f5;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .header-container {
@@ -86,15 +111,17 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: black;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 0.95em;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .nav-links a:hover {
-  background-color: #7c0007;
+  background-color: var(--main-color);
   color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  transition: 0.3s ease;
 }
 
 .hamburger-menu {
@@ -108,7 +135,7 @@ nav {
   display: block;
   width: 30px;
   height: 3px;
-  background-color: black;
+  background-color: var(--text-color);
   border-radius: 2px;
 }
 
@@ -126,16 +153,21 @@ nav ul li {
 
 .navbar {
   display: flex;
-  font-family: "Merriweather", serif;
+  font-family: var(--font-serif);
   align-items: center;
-  font-size: 2em;
+  font-size: 1.8em;
   gap: 0.3em;
   font-weight: bold;
+  color: var(--main-color);
+}
+
+.navbar-title a {
+  color: var(--text-color);
 }
 
 nav a {
   text-decoration: none;
-  color: black;
+  color: var(--text-color);
   font-weight: bold;
 }
 
@@ -145,11 +177,9 @@ footer {
   display: flex;
   flex-direction: column;
   color: white;
-  padding: 40px 50px;
+  padding: 48px 50px 30px;
   gap: 20px;
   text-align: center;
-  font-weight: bold;
-  letter-spacing: 8%;
   height: 100%;
   width: 100%;
 }
@@ -169,8 +199,9 @@ ul {
 .footer-logo {
   display: flex;
   align-items: center;
-  font-size: 1.7em;
+  font-size: 1.5em;
   font-weight: bold;
+  font-family: var(--font-serif);
 }
 
 .logo {
@@ -178,9 +209,14 @@ ul {
 }
 
 .property-footer-title {
-  margin-bottom: 0.4em;
+  margin-bottom: 0.7em;
   text-align: left;
-  font-size: 1.2em;
+  font-size: 0.85em;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-bottom {
@@ -190,13 +226,42 @@ ul {
 .location-info {
   font-weight: 300;
   text-align: left;
+  line-height: 1.7;
 }
 
 .property-type {
   font-weight: 300;
   text-align: left;
+  line-height: 1.9;
 }
 
+.property-type a {
+  transition: opacity 0.2s ease;
+}
+
+.property-type a:hover {
+  opacity: 0.75;
+  text-decoration: underline !important;
+}
+
+.socials img {
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 6px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.socials img:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
+}
+
+footer p.property-type {
+  text-align: center;
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+}
 
 
 
@@ -268,31 +333,32 @@ ul {
   }
 
   .hamburger-menu.active {
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
   }
-  
+
 
   .nav-links {
     display: none;
     position: absolute;
     top: 90px;
     right: 30px;
-    width: 120px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
+    width: 140px;
+    background-color: white;
+    border-radius: var(--radius-md);
     padding: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-lg);
   }
 
   .nav-links li {
     list-style: none;
-    margin: 10px 0;
+    margin: 6px 0;
   }
 
   .nav-links a {
     text-decoration: none;
-    color: black;
-    font-weight: bold;
+    color: var(--text-color);
+    font-weight: 600;
+    display: block;
   }
 
 

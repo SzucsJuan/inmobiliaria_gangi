@@ -1,16 +1,10 @@
-:root {
-  --main-color: #7c0007;
-  --secondary-color: #8c5074;
-  --alternative-color: #787878;
-}
-
 .filters-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 15px;
+  gap: 12px;
   padding: 20px 100px;
-  border-top: 1px solid var(--alternative-color);
-  border-bottom: 1px solid var(--alternative-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .dropdown {
@@ -19,137 +13,70 @@
 }
 
 .filter-btn {
-  padding: 8px 15px;
-  border: 1px solid var(--main-color);
+  padding: 10px 20px;
+  border: 1.5px solid var(--border-color);
   background: white;
-  color: var(--alternative-color);
-  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: var(--radius-lg);
   font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
   display: flex;
   align-items: center;
-  gap: 5px;
-}
-
-.filter-btn:hover,
-.filter-btn:focus {
-  border-color: var(--main-color);
-  box-shadow: 0 0 5px var(--main-color);
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 160px;
-  z-index: 1;
-  top: 100%;
-  left: 0;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-}
-
-.dropdown-content a {
-  color: var(--alternative-color);
-  padding: 10px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: var(--main-color);
-  color: white;
-}
-
-.show {
-  display: block;
-}
-
-.sort-container {
-  display: flex;
-  justify-content: flex-end;
-  padding: 20px;
-}
-
-
-
-/* -------------------RESPONSIVE -----------------*/
-
-
-:root {
-  --main-color: #7c0007;
-  --secondary-color: #8c5074;
-  --alternative-color: #787878;
-}
-
-.filters-container {
-  display: flex;
-  flex-wrap: wrap; 
-  justify-content: flex-start;
-  gap: 15px;
-  padding: 20px 100px; 
-  border-top: 1px solid var(--alternative-color);
-  border-bottom: 1px solid var(--alternative-color);
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block; 
-}
-
-.filter-btn {
-  padding: 8px 15px;
-  border: 1px solid var(--main-color);
-  background: white;
-  color: var(--alternative-color);
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: all 0.2s ease-in-out;
+  gap: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 
 .filter-btn img {
-    display: block; 
+  display: block;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
 }
 
 .filter-btn:hover,
 .filter-btn:focus {
   border-color: var(--main-color);
-  box-shadow: 0 0 5px rgba(124, 0, 7, 0.5); 
+  color: var(--main-color);
+  box-shadow: 0 0 0 3px var(--main-color-tint);
   outline: none;
+}
+
+#clearFiltersBtn {
+  border-color: var(--main-color);
+  color: var(--main-color);
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: white;
-  min-width: 180px; 
-  z-index: 10; 
-  top: 100%; 
+  min-width: 190px;
+  z-index: 10;
+  top: calc(100% + 8px);
   left: 0;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); 
-  border-radius: 5px;
-  border: 1px solid #eee; 
-  overflow: hidden; 
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  padding: 6px;
 }
 
 .dropdown-content a {
-  color: var(--alternative-color);
-  padding: 12px 15px; 
+  color: var(--text-color);
+  padding: 10px 12px;
   text-decoration: none;
   display: block;
   font-size: 14px;
-  transition: background-color 0.2s ease, color 0.2s ease; 
+  border-radius: var(--radius-sm);
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .dropdown-content a:hover {
-  background-color: var(--main-color);
-  color: white;
+  background-color: var(--main-color-tint);
+  color: var(--main-color);
 }
 
 
@@ -160,7 +87,7 @@
 .sort-container {
   display: flex;
   justify-content: flex-end;
-  padding: 20px 100px; 
+  padding: 20px 100px;
 }
 
 
@@ -169,7 +96,7 @@
 
 @media (max-width: 1919px) {
   .filters-container {
-    padding: 20px 60px; 
+    padding: 20px 60px;
   }
   .sort-container {
     padding: 20px 60px;
@@ -180,14 +107,14 @@
 /* Estilos para Tablets */
 @media (max-width: 1024px) {
   .filters-container {
-    padding: 20px 30px; 
+    padding: 20px 30px;
     justify-content: center;
   }
   .sort-container {
-    padding: 20px 30px; 
-    justify-content: center; 
-    border-top: 1px solid var(--alternative-color); 
-    margin-top: 10px; 
+    padding: 20px 30px;
+    justify-content: center;
+    border-top: 1px solid var(--border-color);
+    margin-top: 10px;
   }
 }
 
@@ -195,38 +122,39 @@
 /* Estilos para Móviles */
 @media (max-width: 600px) {
   .filters-container {
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
-    padding: 15px; 
-    gap: 10px; 
-    border-bottom: none; 
+    padding: 15px;
+    gap: 10px;
+    border-bottom: none;
   }
 
   .dropdown {
-    width: 90%; 
-    max-width: 350px; 
-    display: flex; 
+    width: 90%;
+    max-width: 350px;
+    display: flex;
     justify-content: center;
   }
 
   .filter-btn {
-    width: 100%; 
+    width: 100%;
     justify-content: space-between;
-    font-size: 15px; 
-    padding: 10px 15px; 
+    white-space: normal;
+    font-size: 15px;
+    padding: 10px 15px;
   }
-  
+
 
   #clearFiltersBtn {
-     justify-content: center; 
+     justify-content: center;
      gap: 8px;
   }
 
   .dropdown-content {
-    min-width: unset; 
+    min-width: unset;
     width: 100%;
-    left: 0; 
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); 
+    left: 0;
+    box-shadow: var(--shadow-lg);
   }
 
   .dropdown-content a {
@@ -235,14 +163,14 @@
   }
 
   .sort-container {
-    justify-content: center; 
-    padding: 15px; 
-    border-top: 1px solid var(--alternative-color); 
-    margin-top: 0; 
+    justify-content: center;
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 0;
   }
-  
+
   .sort-container .dropdown {
-     width: 90%; 
+     width: 90%;
      max-width: 350px;
   }
   .sort-container .filter-btn {

@@ -42,7 +42,7 @@ function updateCard(data, zonesData, typesData, operationsData) {
           <img src="${imageUrl}" alt="Imagen de la propiedad">
           <p class="price">U$S ${price} - <span class="operation">En ${operationName}</span></p>
           <p class="street">${typesName}</p>
-          <h2 class="street"><img src="/assets/icons/location-icon.png" alt="Ubicación" class="location-icon">${street} 
+          <h2 class="street"><img src="/assets/icons/location-icon.svg" alt="Ubicación" class="location-icon">${street} 
               <br> <span class="zone" style='margin-left: 19px;'>${zoneName}</span></h2>
         `;
         container.appendChild(card);

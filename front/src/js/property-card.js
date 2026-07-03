@@ -91,20 +91,20 @@ function renderCards(properties) {
               <p class="price">U$S ${price} - <span class="operation">En ${operationName}</span></p>
               <p class="type">${typesName}</p>
               <p class="location">
-                  <img src="/assets/icons/location-icon.png" alt="Ubicación" class="location-icon">
+                  <img src="/assets/icons/location-icon.svg" alt="Ubicación" class="location-icon">
                   ${location} - ${zoneName}
               </p>
               <div class="details">
                   <p>
-                      <img src="/assets/icons/icon-house.png" alt="Ambientes" class="house-icon">
+                      <img src="/assets/icons/icon-house.svg" alt="Ambientes" class="house-icon">
                       Ambientes: ${rooms ?? "No detallado"}
                   </p>
                   <p>
-                      <img src="/assets/icons/icon-bedroom.png" alt="Dormitorios" class="house-icon">
+                      <img src="/assets/icons/icon-bedroom.svg" alt="Dormitorios" class="house-icon">
                       Dormitorios: ${bedrooms ?? "No detallado"}
                   </p>
                   <p>
-                      <img src="/assets/icons/icon-surface.png" alt="Superficie" class="surface-icon">
+                      <img src="/assets/icons/icon-surface.svg" alt="Superficie" class="surface-icon">
                       Área total: ${surface}m²
                   </p>
               </div>

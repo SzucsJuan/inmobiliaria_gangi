@@ -1,31 +1,22 @@
-/* body {
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f9;
-  display: flex;
-  justify-content: right;
-  align-items: center;
-  height: 100vh;
-  padding: 40px 50px;
-} */
-
 .card-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 24px;
+  padding: 30px 0;
 }
 
 .card {
   position: relative;
-  background: rgba(167, 162, 162, 0.15);
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: var(--shadow-sm);
   height: 340px;
   width: 1050px;
-  margin-bottom: 30px;
+  max-width: 100%;
+  margin-bottom: 0;
   display: flex;
   box-sizing: border-box;
   overflow: hidden;
@@ -33,12 +24,12 @@
 }
 
 .card:hover {
-  box-shadow: 0 4px 8px 0 #787878;
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
 }
 
 .card-info {
-  padding: 20px;
+  padding: 22px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -51,7 +42,7 @@
   width: 40%;
   aspect-ratio: 16/9;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
 }
 
 .card-content {
@@ -64,31 +55,32 @@
 }
 
 .card h2 {
-  color: #333;
+  color: var(--text-color);
   font-size: 22px;
   margin-bottom: 10px;
 }
 
 .card p {
-  color: #666;
-  font-size: 16px;
+  color: var(--text-muted);
+  font-size: 15px;
   margin: 5px 0;
 }
 
 .card .price {
-  color: #000000;
-  font-weight: bold;
-  font-size: 24px;
-  margin: 10px 0;
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 22px;
+  margin: 8px 0;
   text-align: left;
 }
 
 .card .type {
-  color: #414141;
-  font-weight: bold;
-  font-size: 18px;
-  margin: 8px 0;
-  text-align: left;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 15px;
+  margin: 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .precio-box {
@@ -102,19 +94,20 @@
 }
 
 .precio-box .boton {
-  background-color: #75485e;
+  background-color: var(--secondary-color);
   color: white;
   border: none;
-  padding: 6px 12px;
-  border-radius: 5px;
-  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .location-icon,
 .house-icon,
 .surface-icon {
-  max-width: 24px;
-  max-height: 24px;
+  max-width: 20px;
+  max-height: 20px;
   width: 100%;
   height: auto;
   margin-right: 8px;
@@ -143,27 +136,30 @@
 .location {
   display: flex;
   align-items: center;
-  color: #666;
-  font-weight: bold;
-  font-size: 16px;
-  margin: 5px 0;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 15px;
+  margin: 6px 0;
 }
 
 .aditional-info p {
-  margin-top: 20px;
-  font-size: 16px;
+  margin-top: 16px;
+  font-size: 15px;
+  color: var(--text-muted);
 }
 
 .details {
-  margin-top: 18px;
+  margin-top: 16px;
   display: flex;
   align-items: center;
   white-space: nowrap;
-  gap: 40px;
+  gap: 32px;
 }
 
 .details p {
   margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 .contact {
@@ -172,20 +168,21 @@
 
 .contact a {
   color: #ffffff;
-  background-color: #007bff;
+  background-color: var(--main-color);
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   text-decoration: none;
   font-size: 14px;
 }
 
 .contact a:hover {
-  background-color: #0056b3;
+  background-color: var(--main-color-hover);
 }
 
 .operation {
-  font-size: 20px;
-  color: #8C5074;
+  font-size: 15px;
+  color: var(--secondary-color);
+  font-weight: 600;
 }
 
 /* === Tablet === */
@@ -202,7 +199,7 @@
   .card img:not(.location-icon):not(.house-icon):not(.surface-icon):not(.whatsapp-icon img) {
     width: 100%;
     aspect-ratio: 16/9;
-    border-radius: 12px 12px 0 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
 
   .card-content {
@@ -266,7 +263,7 @@
   }
 
   .card .type {
-    font-size: 16px;
+    font-size: 13px;
   }
 
   .details {
@@ -291,6 +288,6 @@
   }
 
   .operation {
-    font-size: 18px;
+    font-size: 14px;
   }
 }

@@ -14,7 +14,7 @@
 }
 
 .spacer {
-  background-color: transparent; 
+  background-color: transparent;
 }
 
 
@@ -24,29 +24,33 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(180deg, rgba(20, 8, 8, 0.35) 0%, rgba(20, 8, 8, 0.55) 55%, rgba(20, 8, 8, 0.78) 100%);
 }
 
 .hero-content {
-  max-width: 600px;
+  max-width: 640px;
   position: relative;
   z-index: 2;
 }
 
 .hero h1 {
-  font-size: 64px;
+  font-size: clamp(36px, 5vw, 64px);
   margin: 0;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
 }
 
 .hero p {
-  font-size: 24px;
+  font-size: 19px;
   margin-top: 15px;
+  font-weight: 300;
+  line-height: 1.5;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
 .search-bar {
   display: flex;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 28px;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -54,9 +58,9 @@
 
 .search-box {
   background: white;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 6px 4px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
   flex: 1;
   min-width: 250px;
 }
@@ -65,62 +69,72 @@
 .search-box select {
   border: none;
   width: 100%;
+  font-family: var(--font-sans);
   font-size: 14px;
   background: transparent;
   outline: none;
-  color: #555;
-  padding: 10px;
+  color: var(--text-color);
+  padding: 10px 12px;
 }
 
 .search-bar button {
-  background: #7c0007;
+  background: var(--main-color);
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
   cursor: pointer;
   height: 55px;
   font-size: 16px;
-  transition: background 0.3s ease-in-out;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  box-shadow: var(--shadow-md);
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .search-bar button:hover {
-  background: #a5000a;
+  background: var(--main-color-hover);
+  transform: translateY(-1px);
 }
 
 .featured-properties {
   text-align: center;
   align-items: center;
-  padding: 40px 50px 20px 50px;
+  padding: 56px 50px 20px 50px;
   justify-content: space-between;
 }
 
 .featured-properties h2 {
-  font-size: 40px;
-  margin-bottom: 10px;
+  font-size: 34px;
+  margin-bottom: 8px;
   text-align: left;
 }
 
 .featured-properties p {
-  font-size: 20px;
+  font-size: 17px;
   text-align: left;
   margin: 0;
+  color: var(--text-muted);
+  font-weight: 300;
 }
 
 .view-all-btn {
   display: inline-block;
   background-color: white;
-  color: #7c0007;
-  padding: 10px 20px;
-  border: 2px solid #7c0007;
-  border-radius: 5px;
+  color: var(--main-color);
+  font-weight: 600;
+  font-size: 0.95em;
+  padding: 11px 22px;
+  border: 1.5px solid var(--main-color);
+  border-radius: var(--radius-pill);
   text-align: center;
   cursor: pointer;
   text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .view-all-btn:hover {
-  background-color: #7c0007;
+  background-color: var(--main-color);
   color: white;
 }
 
@@ -144,7 +158,7 @@
 }
 
 .nav-btn:hover {
-  background-color: #7c0007;
+  background-color: var(--main-color);
   color: white;
 }
 
@@ -163,7 +177,7 @@
 
 .card-container {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   transition: transform 0.4s ease-in-out;
 }
 
@@ -172,14 +186,15 @@
   flex-direction: column;
   justify-content: space-between;
   flex: 0 0 calc(35% - 20px);
-  padding: 6px;
+  padding: 10px;
   box-sizing: border-box;
   text-align: left;
-  background: rgba(167, 162, 162, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--bg-card);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   position: relative;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
   min-height: 200px;
   min-width: 200px;
   cursor: pointer;
@@ -192,21 +207,21 @@
 }
 
 .card:hover {
-  box-shadow: 0 4px 8px 0 #787878;
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
 }
 
 .card img {
   width: 100%;
   height: 260px;
   object-fit: cover;
-  border-radius: 3px;
+  border-radius: var(--radius-sm);
 }
 
 .card h2 {
-  color: #333;
+  color: var(--text-color);
   text-align: left;
-  font-size: 15px;
+  font-size: 16px;
   margin: 15px 5px;
   word-wrap: break-word;
   white-space: normal;
@@ -215,8 +230,8 @@
 .card p {
   text-align: left;
   font-size: 1rem;
-  font-weight: bold;
-  color: #000000;
+  font-weight: 700;
+  color: var(--text-color);
   margin-top: 15px;
   margin-left: 5px;
 }
@@ -231,8 +246,9 @@
 }
 
 .operation {
-  font-size: 1rem;
-  color: #8C5074;
+  font-size: 0.85rem;
+  color: var(--secondary-color);
+  font-weight: 600;
 }
 
 .hidden {
@@ -274,12 +290,12 @@
   }
 
   .featured-properties h2 {
-    font-size: 28px;
+    font-size: 26px;
     text-align: center;
   }
 
   .featured-properties p {
-    font-size: 16px;
+    font-size: 15px;
     text-align: center;
   }
 
