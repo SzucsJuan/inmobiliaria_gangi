@@ -66,6 +66,7 @@ function renderCards(properties) {
       const {
         nro: propertyId,
         valor: price,
+        moneda,
         calle: location,
         ambientes: rooms,
         dormitorios: bedrooms,
@@ -88,7 +89,7 @@ function renderCards(properties) {
       <div class="card" data-id="${escapeHtml(propertyId)}" data-price="${price ?? 0}">
           <img src="${escapeHtml(imageUrl)}" alt="Imagen de la propiedad">
           <div class="card-info">
-              <p class="price">U$S ${price} - <span class="operation">En ${escapeHtml(operationName)}</span></p>
+              <p class="price">${currencySymbol(moneda)} ${price} - <span class="operation">En ${escapeHtml(operationName)}</span></p>
               <p class="type">${escapeHtml(typesName)}</p>
               <p class="location">
                   <img src="/assets/icons/location-icon.svg" alt="Ubicación" class="location-icon">

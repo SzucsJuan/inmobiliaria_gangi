@@ -24,6 +24,7 @@ function updateCard(data, zonesData, typesData, operationsData) {
       if (Array.isArray(property.imagenes) && property.imagenes.length > 0) {
         const imageUrl = property.imagenes[0];
         const price = property.valor;
+        const moneda = property.moneda;
         const street = property.calle;
         const propertyId = property.nro;
 
@@ -40,7 +41,7 @@ function updateCard(data, zonesData, typesData, operationsData) {
         card.setAttribute("data-id", propertyId);
         card.innerHTML = `
           <img src="${escapeHtml(imageUrl)}" alt="Imagen de la propiedad">
-          <p class="price">U$S ${price} - <span class="operation">En ${escapeHtml(operationName)}</span></p>
+          <p class="price">${currencySymbol(moneda)} ${price} - <span class="operation">En ${escapeHtml(operationName)}</span></p>
           <p class="street">${escapeHtml(typesName)}</p>
           <h2 class="street"><img src="/assets/icons/location-icon.svg" alt="Ubicación" class="location-icon">${escapeHtml(street)}
               <br> <span class="zone" style='margin-left: 19px;'>${escapeHtml(zoneName)}</span></h2>

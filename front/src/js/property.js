@@ -41,6 +41,7 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
   const {
     inmob: inmobCode,
     valor: price,
+    moneda,
     expensas,
     calle: location,
     ambientes: rooms,
@@ -132,7 +133,7 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
         <span class="property-operation">${escapeHtml(operationName)}</span> <br>
         <span class="property-zone">${escapeHtml(location)} - ${escapeHtml(zoneName)}</span>
       </div>
-      <div class="property-value"><span class="property-price">U$S ${price}</span> - <span class="property-exp">Expensas: $ ${
+      <div class="property-value"><span class="property-price">${currencySymbol(moneda)} ${price}</span> - <span class="property-exp">Expensas: $ ${
     expensas ?? ""
   }</span>
         <br> <span class="property-code">Código del inmueble: ${escapeHtml(inmobCode)}-${escapeHtml(propertyId)}</span>

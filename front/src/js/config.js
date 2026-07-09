@@ -2,6 +2,10 @@ const API_BASE_URL = ["localhost", "127.0.0.1"].includes(window.location.hostnam
   ? "http://localhost:3000/api"
   : `${window.location.origin}/api`;
 
+function currencySymbol(moneda) {
+  return moneda === 1 ? "$" : "U$S";
+}
+
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>"']/g, (char) => ({
     "&": "&amp;",
