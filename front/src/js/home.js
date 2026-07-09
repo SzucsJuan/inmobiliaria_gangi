@@ -1,6 +1,6 @@
 async function fetchData() {
   const container = document.querySelector(".card-container");
-  container.innerHTML = "<p>Cargando propiedades...</p>";
+  container.innerHTML = '<div class="spinner-container"><div class="spinner"></div></div>';
   try {
     const { props, zones, types, operations } = await fetchListingData();
     updateCard(props, zones, types, operations);

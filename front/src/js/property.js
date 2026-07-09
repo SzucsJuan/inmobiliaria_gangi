@@ -1,6 +1,6 @@
 async function fetchData() {
   const container = document.querySelector(".main-content");
-  container.innerHTML = "<p>Cargando propiedad...</p>";
+  container.innerHTML = '<div class="spinner-container"><div class="spinner"></div></div>';
   try {
     const { props, zones, types, operations, varios } = await fetchListingData({
       includeVarios: true,
