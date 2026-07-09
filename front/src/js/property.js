@@ -74,7 +74,7 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
     ? property.varios
         .map((varioId) => {
           const vario = variosData.records.find((v) => v.id === varioId);
-          return vario ? `<p>${vario.nombre}</p>` : "";
+          return vario ? `<p>${escapeHtml(vario.nombre)}</p>` : "";
         })
         .join("")
     : "<p>No especificado</p>";
@@ -102,7 +102,7 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
           .map(
             (url) => `
           <div class="swiper-slide">
-            <img src="${url}" alt="Imagen propiedad" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+            <img src="${escapeHtml(url)}" alt="Imagen propiedad" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
           </div>`
           )
           .join("")}
@@ -119,7 +119,7 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
     <ul class="breadcrumb">
       <li><a href="/home.html">Inicio</a></li>
       <li><a href="/property-list.html">Propiedades</a></li>
-      <li class="active">${typesName} en ${location} - ${zoneName}</li>
+      <li class="active">${escapeHtml(typesName)} en ${escapeHtml(location)} - ${escapeHtml(zoneName)}</li>
     </ul>
   </nav>
 `;
@@ -128,14 +128,14 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
   ${breadcrumbHTML}
     <div class="property-header">
       <div class="property-address">
-        <span class="property-category">${typesName}</span> 
-        <span class="property-operation">${operationName}</span> <br> 
-        <span class="property-zone">${location} - ${zoneName}</span>
-      </div> 
+        <span class="property-category">${escapeHtml(typesName)}</span>
+        <span class="property-operation">${escapeHtml(operationName)}</span> <br>
+        <span class="property-zone">${escapeHtml(location)} - ${escapeHtml(zoneName)}</span>
+      </div>
       <div class="property-value"><span class="property-price">U$S ${price}</span> - <span class="property-exp">Expensas: $ ${
     expensas ?? ""
-  }</span> 
-        <br> <span class="property-code">Código del inmueble: ${inmobCode}-${propertyId}</span>
+  }</span>
+        <br> <span class="property-code">Código del inmueble: ${escapeHtml(inmobCode)}-${escapeHtml(propertyId)}</span>
       </div>
     </div>
 
@@ -166,7 +166,7 @@ function propertyInfo(data, zonesData, typesData, operationsData, variosData) {
     </ul>
 
     <h3 class="property-titles" style="margin-top: 2em;">Descripción</h3>
-      <p>${descripcion || "Descripción no disponible."}</p>  
+      <p>${descripcion ? escapeHtml(descripcion) : "Descripción no disponible."}</p>
       <h3 class="property-titles" style="margin-top: 2em;">Ubicación</h3>
         ${mapHTML}
     </div>  

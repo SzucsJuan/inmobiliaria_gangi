@@ -1,4 +1,16 @@
-const API_BASE_URL = "http://localhost:3000/api";
+const API_BASE_URL = ["localhost", "127.0.0.1"].includes(window.location.hostname)
+  ? "http://localhost:3000/api"
+  : `${window.location.origin}/api`;
+
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  }[char]));
+}
 
 async function fetchListingData({ includeVarios = false } = {}) {
   const endpoints = ["props", "zones", "types", "operations-status"];

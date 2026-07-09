@@ -28,15 +28,25 @@
           <div class="search-box">
             <select id="location-select">
               <option value="" selected class="placeholder-option">Seleccionar ubicación</option>
-              <option value="avellaneda-este">Avellaneda Este</option>
-              <option value="avellaneda-oeste">Avellaneda Oeste</option>
-              <option value="barracas">Barracas</option>
-              <option value="don-bosco-este">Don Bosco Este</option>
-              <option value="ezpeleta-este">Ezpeleta Este</option>
-              <option value="mar-del-plata">Mar del Plata</option>
-              <option value="miramar">Miramar</option>
-              <option value="quilmes-centro">Quilmes Centro</option>
-              <option value="quilmes-oeste">Quilmes Oeste</option>
+              <option value="Avellaneda">Avellaneda</option>
+              <option value="Barracas">Barracas</option>
+              <option value="Don Bosco Este">Don Bosco Este</option>
+              <option value="Ezpeleta Este">Ezpeleta Este</option>
+              <option value="Mar del Plata">Mar del Plata</option>
+              <option value="Miramar">Miramar</option>
+              <option value="La Plata">La Plata</option>
+              <option value="La Lucila del Mar">La Lucila del Mar</option>
+              <option value="Lanus Este">Lanus Este</option>
+              <option value="Lomas de Zamora Este">Lomas de Zamora Este</option>
+              <option value="Villa Dominico">Villa Dominico</option>
+              <option value="Quilmes Centro">Quilmes Centro</option>
+              <option value="Quilmes Oeste">Quilmes Oeste</option>
+              <option value="Quilmes Sur">Quilmes Sur</option>
+              <option value="San Vicente">San Vicente</option>
+              <option value="Santa Teresita">Santa Teresita</option>
+              <option value="Sarandi">Sarandi</option>
+              <option value="Tigre">Tigre</option>
+              <option value="Wilde Centro">Wilde Centro</option>
               <option value="Wilde">Wilde</option>
             </select>
           </div>
@@ -50,7 +60,6 @@
               <option value="lote">Lotes</option>
               <option value="galpon">Galpones</option>
               <option value="oficina">Oficinas</option>
-              <option value="ph">PH</option>
             </select>
           </div>
   
@@ -62,12 +71,16 @@
     const location = document.getElementById("location-select").value;
     const type = document.getElementById("type-select").value;
 
-  
-    if (location && type) {
-        window.location.href = `property-list.html?location=${location}&tipo=${type}`;
-    } else {
-        alert("Por favor, selecciona una ubicación y un tipo de vivienda.");
+    if (!location && !type) {
+        alert("Por favor, selecciona una ubicación o un tipo de vivienda.");
+        return;
     }
+
+    const params = new URLSearchParams();
+    if (location) params.set("location", location);
+    if (type) params.set("tipo", type);
+
+    window.location.href = `property-list.html?${params.toString()}`;
 });
 
       </script>
