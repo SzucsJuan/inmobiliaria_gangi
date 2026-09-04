@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
       <div>
         <h3 class="property-footer-title">Encontranos en</h3>
         <div class="contact-info">
-          <p class="location-info">Av. Mitre 385 - Sanraf</p>
-          <p class="location-info">(11) 3277-3991 / 3277-4723</p>
+          <p class="location-info">Av. Mitre 6173 / 75 - Sanraf</p>
+          <p class="location-info">15-5486-2181 / 7707-0791</p>
           <p class="location-info">diego.gangi@estudiogangi.com.ar</p>
         </div>
       </div>
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       </div>
     </div>
-    <p class="property-type" style="text-align: center; margin-top: 2.4em;">2025 Estudio Gangi - Todos los derechos
+    <p class="property-type" style="text-align: center; margin-top: 2.4em;">2026 Estudio Gangi - Todos los derechos
       reservados</p>
   </footer>
     `;
