@@ -1,10 +1,16 @@
 .card-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
-  padding: 30px 0;
+  padding: 30px 100px;
+  box-sizing: border-box;
+}
+
+/* El spinner y los mensajes de estado ocupan la fila completa */
+.card-container > .spinner-container,
+.card-container > p {
+  grid-column: 1 / -1;
+  text-align: center;
 }
 
 .card {
@@ -13,11 +19,10 @@
   border-radius: var(--radius-lg);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow: var(--shadow-sm);
-  height: 340px;
-  width: 1050px;
-  max-width: 100%;
-  margin-bottom: 0;
+  height: 100%;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   overflow: hidden;
   cursor: pointer;
@@ -29,28 +34,28 @@
 }
 
 .card-info {
-  padding: 22px;
+  padding: 18px 20px 22px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .card
   img:not(.location-icon):not(.house-icon):not(.surface-icon):not(
     .whatsapp-icon img
   ) {
-  width: 40%;
+  width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
-  border-radius: var(--radius-md);
+  border-radius: 0;
+  flex-shrink: 0;
 }
 
 .card-content {
-  width: 60%;
-  padding: 0 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   box-sizing: border-box;
 }
 
@@ -69,7 +74,7 @@
 .card .price {
   color: var(--text-color);
   font-weight: 700;
-  font-size: 22px;
+  font-size: 20px;
   margin: 8px 0;
   text-align: left;
 }
@@ -77,7 +82,7 @@
 .card .type {
   color: var(--text-muted);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   margin: 6px 0;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -143,17 +148,23 @@
 }
 
 .aditional-info p {
-  margin-top: 16px;
-  font-size: 15px;
+  margin-top: 14px;
+  font-size: 14px;
   color: var(--text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .details {
-  margin-top: 16px;
+  margin-top: 14px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   white-space: nowrap;
-  gap: 32px;
+  gap: 8px;
 }
 
 .details p {
@@ -180,43 +191,28 @@
 }
 
 .operation {
-  font-size: 15px;
+  font-size: 14px;
   color: var(--secondary-color);
   font-weight: 600;
 }
 
-/* === Tablet === */
+/* === Desktop chico === */
+@media screen and (max-width: 1919px) {
+  .card-container {
+    padding: 30px 60px;
+  }
+}
 
-
+/* === Tablet: 2 por fila === */
 @media screen and (max-width: 1024px) {
-  .card {
-    width: 90%; /* reducimos el ancho */
-    height: auto; /* altura dinámica */
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card img:not(.location-icon):not(.house-icon):not(.surface-icon):not(.whatsapp-icon img) {
-    width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  }
-
-  .card-content {
-    width: 100%;
-    padding: 20px;
-    text-align: center;
+  .card-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 30px;
   }
 
   .precio-box {
     top: 15px;
     right: 15px;
-  }
-
-  .details {
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
   }
 
   .whatsapp-icon {
@@ -225,27 +221,12 @@
   }
 }
 
-
-/* === Mobile === */
+/* === Mobile: 1 por fila === */
 @media screen and (max-width: 768px) {
   .card-container {
+    grid-template-columns: minmax(0, 1fr);
     gap: 20px;
-  }
-
-  .card {
-    width: 95%;
-    flex-direction: column;
-    height: auto;
-  }
-
-  .card img:not(.location-icon):not(.house-icon):not(.surface-icon):not(.whatsapp-icon img) {
-    width: 100%;
-    aspect-ratio: 16/9;
-  }
-
-  .card-content {
-    width: 100%;
-    padding: 15px;
+    padding: 20px 15px;
   }
 
   .card h2 {
@@ -266,12 +247,6 @@
     font-size: 13px;
   }
 
-  .details {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
   .precio-box {
     top: 10px;
     right: 10px;
@@ -285,9 +260,5 @@
   .contact a {
     font-size: 12px;
     padding: 8px 12px;
-  }
-
-  .operation {
-    font-size: 14px;
   }
 }
