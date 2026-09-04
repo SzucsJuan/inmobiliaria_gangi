@@ -1,42 +1,27 @@
 .hero {
   width: 100%;
-  height: 100vh;
-  display: flex;
+  min-height: min(88vh, 780px);
+  display: grid;
+  grid-template-columns: minmax(0, 640px) minmax(0, 480px);
   align-items: center;
   justify-content: center;
-  background-image: url("/assets/icons/home-card.jpg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  color: white;
-  text-align: center;
-  padding: 0 30px;
+  gap: 56px;
+  padding: 64px 100px;
+  color: var(--text-color);
+  text-align: left;
 }
 
 .spacer {
   background-color: transparent;
 }
 
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(20, 8, 8, 0.35) 0%, rgba(20, 8, 8, 0.55) 55%, rgba(20, 8, 8, 0.78) 100%);
-}
-
 .hero-content {
   max-width: 640px;
-  position: relative;
-  z-index: 2;
 }
 
 .hero h1 {
   font-size: clamp(36px, 5vw, 64px);
   margin: 0;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
 }
 
 .hero p {
@@ -44,7 +29,24 @@
   margin-top: 15px;
   font-weight: 300;
   line-height: 1.5;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  color: var(--text-muted);
+}
+
+/*
+ * La foto del local es de 960x1280, así que se topea en 480px de ancho: en
+ * pantallas retina (DPR 2) eso cae justo en los 960px nativos y se ve nítida,
+ * sin escalarla nunca por encima de su resolución real.
+ */
+.hero-photo img {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  /* Sin esto, el height="1280" del <img> gana sobre el aspect-ratio. */
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
 }
 
 .search-bar {
@@ -52,7 +54,7 @@
   gap: 10px;
   margin-top: 28px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
@@ -259,6 +261,11 @@
 
 /* RESPONSIVE DESKTOP < 1920px */
 @media (max-width: 1919px) {
+  .hero {
+    padding: 56px 60px;
+    gap: 40px;
+  }
+
   .card {
     flex: 0 0 calc(25% - 20px);
     max-width: calc(25% - 20px);
@@ -267,6 +274,32 @@
 
 /* RESPONSIVE TABLET */
 @media (max-width: 1024px) {
+  /* Una sola columna: la foto arriba y el texto con el buscador debajo. */
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+    gap: 32px;
+    padding: 40px 30px;
+    min-height: 0;
+  }
+
+  .hero-photo {
+    order: -1;
+  }
+
+  .hero-photo img {
+    max-width: 380px;
+  }
+
+  .hero-content {
+    justify-self: center;
+  }
+
+  .search-bar {
+    justify-content: center;
+  }
+
   .card-container {
     flex-wrap: wrap;
     justify-content: center;
@@ -280,6 +313,19 @@
 
 /* RESPONSIVE MOBILE */
 @media (max-width: 600px) {
+  .hero {
+    padding: 28px 20px 36px;
+    gap: 24px;
+  }
+
+  .hero-photo img {
+    max-width: 300px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
   .card {
     flex: 0 0 100%;
     max-width: 100%;
